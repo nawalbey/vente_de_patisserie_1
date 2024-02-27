@@ -1,0 +1,627 @@
+/* body donner une taille et une largeur 100vh (mode plien ecran)  */
+body {
+  height: 100vh;
+  width: 100%;
+}
+/* fin du body */
+
+.container-height {
+  min-height: 100vh;
+}
+
+/* debut du container */
+.container {
+  width: 630px;
+  margin-left: 30px;
+}
+/* fin du container */
+
+/* container du login */
+.container_login {
+  min-height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+/* fin */
+/* debut du h1 */
+h1 {
+  text-align: center;
+  letter-spacing: -2px;
+  color: #bf8a3d;
+  font-family: Georgia, serif;
+  text-decoration: underline;
+  padding-top: 35px;
+  text-shadow: none;
+  animation: neon-blink 2s infinite alternate;
+}
+
+@keyframes neon-blink {
+  to {
+    text-shadow: 0 0 10px #cf6400, 0 0 20px #f5b002, 0 0 30px #2e0b0b;
+  }
+}
+/* fin du h1 */
+
+/* .class5 */
+.class5 {
+  background-image: url("../img/detail_gateau.jpg");
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.355);
+  background-size: cover;
+  width: 100%;
+  min-height: 1000px;
+}
+/* fin */
+
+/* debut de la class1 */
+.class1 {
+  background-image: url(../img/104-1048812_fond-d-cran-chocolat.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 50% 70%;
+  width: 100%;
+}
+/* fin de la class1 */
+
+/* debut de la class1 form */
+.class1 form {
+  padding-top: 50px;
+}
+/* fin */
+
+/* debut du label */
+label {
+  color: wheat;
+  padding-top: 25px;
+  font-family: Georgia, serif;
+  height: 60px;
+  text-decoration: underline;
+}
+/* fin du label */
+
+/* debut du button1 */
+.button1 {
+  text-align: center;
+  font-family: Georgia, serif;
+}
+/* fin du button1 */
+
+/* debut du button1 button */
+.button1 button {
+  background-color: #3a0701;
+  color: white;
+}
+/* fin du button1 button */
+
+/* debut de la class button1 et button hover le hover quand on passe dessus! */
+.button1 button:hover {
+  color: white;
+  background-color: #3a0701;
+}
+/* fin de la class button1 */
+
+/* debut de la class2 */
+.class2 {
+  background-image: url(../img/c27ce794ab5c57eceb709d973b886011.jpeg);
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  position: relative;
+}
+/* fin de la class2 */
+/* debut form1 */
+.form1 {
+  width: 250px;
+  text-align: center;
+}
+/* fin de form1 */
+
+.button2 button {
+  background-color: #3a0701;
+  color: white;
+}
+/* debut du button2 button:hover */
+.button2 button:hover {
+  color: white;
+  background-color: #3a0701;
+}
+/* fin */
+
+/* debut du button2 */
+.button2 {
+  text-align: center;
+  font-family: Georgia, serif;
+}
+/* fin */
+
+/* debut du titre2 */
+.titre2 {
+  letter-spacing: -2px;
+  text-shadow: 2px 2px 5px rgb(255, 254, 253);
+  font-family: Georgia, serif;
+  text-decoration: underline;
+  text-align: center;
+}
+/* fin */
+
+/* debut du button3 button:hover */
+.button3 button:hover {
+  text-align: right;
+  background-color: #3a0701;
+}
+/* fin */
+
+/* debut de la nav */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+/* fin */
+
+/* debut de la nav > div */
+nav > div {
+  display: flex;
+  width: 25%;
+  justify-content: end;
+}
+/* fin */
+
+/* nav > premier enfant div (first-child) */
+nav > div:first-child {
+  justify-content: flex-start;
+}
+/* fin */
+
+/* debut de nav div:nth-child(2) */
+nav div:nth-child(2) {
+  justify-content: center;
+}
+/* fin */
+
+/* debut de h2 */
+h2 {
+  letter-spacing: -2px;
+  text-shadow: 2px 2px 5px rgb(255, 254, 253);
+  font-family: Georgia, serif;
+  text-decoration: underline;
+  color: white;
+}
+/* fin */
+
+/* debut de la navbar1 */
+.navbar1 {
+  margin-right: 10px;
+}
+/* fin */
+
+/* debut color1 */
+.color1 {
+  background-color: #3a0701;
+  color: white;
+}
+/* fin */
+
+/* debut de color1:hover */
+.color1:hover {
+  background-color: #3a0701;
+  color: white;
+}
+/* fin */
+
+/* debut de navbar2 */
+.navbar2 {
+  background-color: #3a0701;
+}
+/* fin */
+
+/* debut de la class3 */
+.class3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 60%;
+  min-height: 600px;
+  padding-bottom: 60px;
+}
+/* fin */
+
+/* debut de body1 */
+.body1 {
+  background-color: #562528;
+}
+/* fin */
+
+/* debut de bg-gateau */
+.bg-gateau {
+  background-image: url("https://img.freepik.com/photos-premium/gateau-au-chocolat-fraises-dessus_862994-525.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 43%;
+  height: 100%;
+  z-index: -3;
+}
+/* fin */
+
+/* debut card */
+.card {
+  margin: 15px 15px;
+}
+/* fin */
+
+/* debut de card img */
+.card img {
+  height: 300px;
+}
+/* fin */
+
+/* debut de h5 */
+h5 {
+  text-align: center;
+  font-weight: bold;
+  text-decoration: underline;
+}
+/* fin */
+
+/* debut p */
+p {
+  margin-top: 5px;
+}
+/* fin */
+
+/* debut btn */
+.btn {
+  background-color: #562528;
+  color: white;
+}
+/* fin */
+
+/* debut btn:hover */
+.btn:hover {
+  background-color: #562528;
+  color: white;
+}
+/* fin */
+
+/* debut card */
+.card {
+  position: relative;
+  border: 4px solid black;
+}
+/* fin */
+
+/* debut card-body */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+/* fin */
+
+/* debut prix_gateau */
+.prix_gateau {
+  position: absolute;
+  top: 250px;
+  left: 0;
+  background-color: #562528;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 25px;
+}
+/* fin */
+
+/* debut card-text */
+.card-text {
+  margin-top: 10px;
+  text-align: center;
+  height: 100px;
+}
+/* fin */
+
+/* bouton des cartes */
+.btn-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* fin */
+
+/* classe btn-cards a */
+.btn-cards a {
+  width: 150px;
+}
+/* fin */
+
+/* debut de ajout_admin_gateau h1 */
+.ajout_admin_gateau h1 {
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: -2px;
+  text-shadow: 2px 2px 5px rgb(255, 254, 253);
+  font-family: Georgia, serif;
+  text-decoration: underline;
+  padding: 100px 0;
+}
+/* fin */
+
+/* debut de ajout_admin_gateaux form */
+.ajout_admin_gateau form {
+  width: 50%;
+  min-height: 100vh;
+  margin: auto;
+  background-image: url(../img/Gateau-chocolat-zucchini-tinyjpg-1178px.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* box-shadow inset(l'interieur) pour que l'image soit sombre */
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+}
+/* fin */
+
+/* debut de admin_flex */
+.admin_form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* debut .admin_flex .admin_flex_envoyer */
+.admin_flex {
+  margin: 15px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding-bottom: 100px;
+}
+
+.admin_flex_envoyer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+/* fin */
+
+/* debut .admin_flex_envoyer */
+.admin_flex_envoyer {
+  width: 100%;
+}
+/* fin de admin_flex */
+
+/* debut  admin_flex input */
+.admin_form input[type="submit"] {
+  margin: 20px auto;
+}
+/* fin de admin_flex input */
+
+/* debut admin_flex label */
+.admin_form label {
+  margin: 2px;
+  margin-bottom: 25px;
+  padding: 0;
+  font-size: 20px;
+  font-weight: bold;
+  height: 100%;
+  text-align: center;
+}
+
+/* debut de la classe admin_form input */
+.admin_form input {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  height: 100%;
+  width: 200px;
+}
+/* fin */
+
+/* debut label */
+label {
+  color: #f59761;
+  margin-top: 25px;
+}
+/* fin */
+
+/* panier 'i' color white */
+i {
+  color: white;
+}
+/* fin du panier 'i' */
+
+/* debut de la class4 */
+.class4 {
+  background-image: url(../img/8680b6b9d2199843b0f88adb8739c8a5.jpeg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 50% 20%;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.355);
+}
+/* fin de la class4 */
+
+/* debut du panier */
+.panier {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 25px;
+  width: 100%;
+}
+/* fin du panier */
+
+/* debut de card-text1 */
+.card-text1 {
+  background-color: #562528;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 30px;
+}
+/* fin de card-taxt1 */
+
+/* debut du footer */
+.footer-login {
+  display: flex;
+  justify-content: space-around;
+  align-items: end;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+/* fin */
+
+/* debut du footer i */
+footer i {
+  font-size: 50px;
+  color: #9d7e8d;
+}
+/* fin */
+
+/* debut du footer span */
+footer span {
+  color: white;
+  padding-left: 30px;
+  font-family: "Gill Sans", sans-serif;
+  text-decoration: underline;
+}
+/* fin */
+
+/* debut de footer2-inscription */
+.footer2-inscription {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 50;
+}
+/* fin */
+
+/* debut de commander */
+#commander {
+  text-align: center;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* fin */
+
+/* id# commander */
+#commander a {
+  font-size: 30px;
+  margin-top: 60px;
+}
+/* fin */
+
+/* debut classe bienvenue1 */
+.bienvenue1 {
+  display: flex;
+  align-items: center;
+}
+/* fin */
+
+/* debut classe bienvenue1 et h3 */
+.bienvenue1 h3 {
+  text-decoration: underline;
+  font-style: italic;
+  color: aliceblue;
+  font-size: 18px;
+  padding-right: 20px;
+  margin: 0;
+}
+/* fin */
+
+/*  debut de la classe imgchocolat img */
+.imgchocolat img {
+  width: 60px;
+  height: 50px;
+  transition: transform 0.3s ease;
+  /* Ajoute une transition de 0.3 secondes avec une fonction d'accélération */
+  animation: rotation 6s linear infinite;
+  border-radius: 40%;
+  border: 2px solid black;
+}
+/* fin */
+
+/* debut de la classe imgchocolat img:hover */
+.imgchocolat img:hover {
+  transform: rotate(
+    20deg
+  ); /* Applique une rotation de 20 degrés au survol de la souris */
+}
+/* animation */
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+/* fin */
+
+/* classe addtocartbtn pour expace les bouton entre ajouter au panier et voir details */
+.addToCartBtn {
+  margin: 5px;
+}
+/* fin */
+
+/* classe card_detail */
+.card_detail {
+  display: flex;
+  justify-content: center;
+  height: 800px;
+  align-items: center;
+}
+/* fin */
+
+/* classe card_height */
+.card-height {
+  height: 550px;
+  margin-bottom: 70px;
+}
+/* fin */
+
+/* classe card_height */
+.card-height {
+  height: 550px;
+  margin-bottom: 70px;
+}
+/* fin */
+
+/* fichier panier class txt heading */
+.txt-heading {
+  color: white;
+  padding-top: 55px;
+  text-align: center;
+  margin: 0;
+  border: 1px solid white;
+  margin-left: 733px;
+  margin-right: 733px;
+  margin-top: 55px;
+}
+
+.payement{
+  margin-bottom: 25px;
+}
+
+.txt-heading-label{
+  color: white;
+  font-size: 25px;
+ text-align: center;
+}
