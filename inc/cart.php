@@ -19,7 +19,7 @@
 
     function getSessionCart(): array
     {
-        return $_SESSION['cart'];
+        return isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
     }
 
     function removeSessionCart(): void

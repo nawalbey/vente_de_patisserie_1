@@ -21,7 +21,7 @@ if (isset($_POST['inscription'])) {
         $passwordHash = password_hash($mot_de_passe, PASSWORD_DEFAULT);
         $request->execute(array($nom, $prenom, $email, $passwordHash, $adresse, $numero_telephone, $date_de_naissance));
         $_SESSION['inscription_reussie'] = "Votre inscription s'est correctement déroulée";
-        header("Location: http://localhost/vente_de_patisserie/views/login.php");
+        header("Location: http://localhost/vente_de_patisserie_1/views/login.php");
     } catch (PDOException $e) {
         echo $e->getMessage();
     }

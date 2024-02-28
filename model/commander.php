@@ -19,20 +19,22 @@ if (isset($_GET['commande']) && $_GET['commande'] == 'true' && isset($_SESSION['
     // Récupérer l'ID de la commande insérée
     $id_commande = $db->lastInsertId();
 
-    $request = $db->prepare('INSERT INTO detail (id_commande,id_gateau,quantite) VALUES (?,?,?)');
+    $request = $db->prepare('INSERT INTO detail_commande (id_commande,id_gateau,quantite) VALUES (?,?,?)');
+    var_dump($gateaux);
+    die();
     foreach ($gateaux as $tableau => $articlesQuantite) {
-        $id = $articlesQuantite['article']['id_gateaux'];
+        $id = $articlesQuantite['tableau']['id_gateaux'];
         $quantite = $articlesQuantite['quantite'];
 
         try {
             $request->execute([$id_commande, $id, $quantite]);
             unset($_SESSION['cart']);
-            header('Location: http://localhost/vente_de_patisserie/gateaux.php');
+            header('Location: http://localhost/vente_de_patisserie_1/gateaux.php');
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
     }
 } else {
-    header('Location: http://localhost/vente_de_patisserie/views/login.php');
+    header('Location: http://localhost/vente_de_patisserie_1/views/login.php');
     $_SESSION['message_connexion'] = "Merci de vous connecter avant de commander !";
 }

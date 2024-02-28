@@ -11,7 +11,7 @@ if(isset($_POST['ajout_gateau'])) {
 
     $tmp_name = $_FILES['i_gateau']['tmp_name'];
 
-    $destination = $_SERVER['DOCUMENT_ROOT']."/vente_de_patisserie/asset/img/".$imgName;
+    $destination = $_SERVER['DOCUMENT_ROOT']."/vente_de_patisserie_1/asset/img/".$imgName;
 
     move_uploaded_file($tmp_name, $destination);
     // Connexion base de données : 
@@ -21,7 +21,7 @@ if(isset($_POST['ajout_gateau'])) {
 
     try { // on essaye d'executer la requête
         $request->execute(array($n_g, $d_g, $p_g, $imgName));
-        header('Location: http://localhost/vente_de_patisserie/admin/ajout_gateau.php');
+        header('Location: http://localhost/vente_de_patisserie_1/admin/ajout_gateau.php');
     } catch (PDOException $error) {
         echo $error->getMessage();
     }

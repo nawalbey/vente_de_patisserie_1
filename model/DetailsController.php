@@ -19,7 +19,7 @@ if (isset($_GET['id_gateau'])) {
                 // On stock le tableau dans la session sous la clé 'detail_gateau' qui contiendra toutes les informations,
                 // pour y acceder on parcourera le tableau comme ceci: $_SESSION['detail_gateau']['id_gateaux']
                 $_SESSION['detail_gateau'] = $gateau;
-                header('Location: http://localhost/vente_de_patisserie/views/detail_gateaux.php');
+                header('Location: http://localhost/vente_de_patisserie_1/views/detail_gateaux.php');
             } else {
                 $_SESSION['erreur_id_detail'] = "Le gateau n'a pas été trouvé ! ";
             }

@@ -17,6 +17,5 @@ include_once("inc.php");
         <script src='../asset/js/structure.js'></script>
         <title>nav_bar</title>
     </head>
-
-    <body class="body1">
-        <?php include_once "nav_bar.php" ?>
+<body class="body1">
+ <?php include_once "nav_bar.php" ?> 

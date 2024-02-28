@@ -2,9 +2,8 @@
 require_once('../inc/header.php');
 require_once('../model/action_admin.php');
 $gateaux = gateaux_liste();
-// session_destroy();
 
-?>
+?>   
 
 <div class="class3">
     <?php
@@ -45,5 +44,4 @@ $gateaux = gateaux_liste();
     ?>
     <div class="bg-gateau"></div>
 </div>
-
 <?php include_once "../inc/footer.php" ?>

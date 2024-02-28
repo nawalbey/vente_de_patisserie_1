@@ -32,14 +32,14 @@ if (isset($_POST['connexion'])) {
                     $_SESSION["prenom"] = $userInfo['prenom'];
                     $_SESSION["email"] = $userInfo["email"];
                     $_SESSION["role"] = $userInfo["role"];
-                    header("Location: http://localhost/vente_de_patisserie/admin/admin.php");
+                    header("Location: http://localhost/vente_de_patisserie_1/admin/admin.php");
                 } else {
                     $_SESSION["id"] = $userInfo["id_user"];
                     $_SESSION["nom"] = $userInfo["nom"];
                     $_SESSION["prenom"] = $userInfo['prenom'];
                     $_SESSION["email"] = $userInfo["email"];
                     $_SESSION["role"] = $userInfo["role"];
-                    header("Location: http://localhost/vente_de_patisserie/views/gateaux.php");
+                    header("Location: http://localhost/vente_de_patisserie_1/views/gateaux.php");
                 }
             } else {
                 echo "Mot de passe incorrect";
