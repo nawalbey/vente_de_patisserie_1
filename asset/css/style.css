@@ -455,6 +455,11 @@ i {
   margin-top: 25px;
   width: 100%;
 }
+
+#panier_vide {
+  color: white;
+  font-size: 30px;
+}
 /* fin du panier */
 
 /* debut de card-text1 */
@@ -612,9 +617,9 @@ footer span {
   text-align: center;
   margin: 0;
   border: 1px solid white;
-  margin-left: 733px;
-  margin-right: 733px;
-  margin-top: 55px;
+  padding: 0 200px;
+  margin: 55px auto 0 auto;
+  width: 800px;
 }
 
 .payement {
@@ -624,5 +629,9 @@ footer span {
 .txt-heading-label {
   color: white;
   font-size: 25px;
-  text-align: center;
 }
+.cart-status {
+  font-size: 20px;
+  margin-top: 10px;
+}
+

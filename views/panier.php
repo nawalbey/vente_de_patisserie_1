@@ -1,9 +1,8 @@
 <?php
 require_once('../inc/header.php');
 require_once('../inc/cart.php');
-
 $messageVide = "Votre panier est vide";
-
+$gateaux = getDetails();
 ?>
 <div class="class4">
     <h1>Panier</h1>
@@ -11,7 +10,6 @@ $messageVide = "Votre panier est vide";
         <div class="panier">
             <?php
             if (!empty($_SESSION['cart'])) {
-                $gateaux = getDetails(); 
                 foreach ($gateaux["products"] as $gateau) { ?>
                         <div class="card" style="width: 18rem;">
                             <img src='../asset/img/<?= $gateau["product"]['photo']; ?>' class="card-img-top" alt="verrine">
@@ -30,9 +28,11 @@ $messageVide = "Votre panier est vide";
                                     <button class="minus update-produit" onclick="decrement_quantity(<?= $gateau['product']['id_gateaux'] ?>, '<?= $gateau['product']['prix']; ?>')">-</button>
                                     <div class="input-quantity" id="input-quantity-<?= $gateau["product"]['id_gateaux'] ?>">
                                         <p class="card-text1">
-                                            <i class="fa-solid fa-cookie-bite">
-                                                <?= $gateau["quantity"] ?>
-                                            </i>
+                                            <?php if (is_array($gateau) && isset($gateau["quantity"])) { ?>
+                                                    <i class="fa-solid fa-cookie-bite">
+                                                        <?= $gateau["quantity"] ?>
+                                                    </i>
+                                            <?php } ?>
                                         </p>
                                     </div>
                                     <button class="plus update-produit" onclick="increment_quantity(<?= $gateau['product']['id_gateaux']; ?>, <?= $gateau['product']['prix']; ?>)">
@@ -50,48 +50,43 @@ $messageVide = "Votre panier est vide";
                             </div>
                         </div>
                 <?php } ?>
-                <div class="txt-heading-label">Payement</div>
 
-                <div class="txt-heading">
-                    <div class="payement">
-                        <div>
-                            <i class="fa-regular fa-credit-card"></i>
-                        </div>
-                        <a id="btnEmpty" href="index.php?action=empty"></a>
-                        <div class="cart-status">
-                            <div>Total Quantity:
-                                <span id="total-quantity">
-                                    <?= $gateaux['totals']['quantity']; ?>
-                                </span>
-                            </div>
-                            <div>Total Price:
-                                <span id="total-price">
-                                    <?= $gateaux['totals']['price']; ?>
-                                </span>
-                            </div>
-                        </div>
 
-                    </div>
-                </div> 
-            <?php } else { ?>
-                    <p><?= $messageVide ?></p>
-            <?php } ?>
-
-        <?php if (!empty($_SESSION['cart'])) { ?>
-                <div
-                    id='commander'>
-                    <!-- Bouton Commander -->
-                    <a href="../model/commander.php?commande=true" class="btn" name="commande">Commander</a>
-                </div>
-                
-                <div>
-                    <!-- Bouton Commander -->
-                    <a href="../views/payement.php" class="btn" name="payement">payement</a>
-                </div>
+        <?php } else { ?>
+                <p id="panier_vide"><?= $messageVide ?></p>
         <?php } ?>
 
 
     </div>
+    <div class="txt-heading">
+        <h3 class="txt-heading-label">Payement</h3>
+           <div>
+                <i class="fa-regular fa-credit-card"></i>
+            </div>
+            
+        <div class="payement">
+            <a id="btnEmpty" href="index.php?action=empty"></a>
+            <div class="cart-status">
+                <div>Total Quantity:
+                    <span id="total-quantity">
+                        <?= $gateaux['totals']['quantity']; ?>
+                    </span>
+                </div>
+                <div>Total Price:
+                    <span id="total-price">
+                        <?= $gateaux['totals']['price']; ?>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php if (!empty($_SESSION['cart'])) { ?>
+            <div
+                id='commander'>
+                <!-- Bouton Commander -->
+                <a href="../model/commander.php?commande=true" class="btn" name="commande">Commander</a>
+            </div>
+    <?php } ?>
 
     <?php include_once "../inc/footer2.php" ?>
 </div></div>

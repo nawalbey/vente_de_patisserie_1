@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
     var form = $(this).closest(".add-to-cart-form");
     var formData = form.serialize();
-    console.log(formData + "&ajouterPanier=panier");
     $.ajax({
       type: "POST",
       url: "../model/achete.php",

@@ -70,8 +70,8 @@
                         'product' => $currentProduct,
                         'quantity' => $quantity
                     ];
-                    $cartProducts['totals']['quantity'] += $quantity;
-                    $cartProducts['totals']['price'] += $quantity * $currentProduct["prix"];
+                    $cartProducts['totals']['quantity'] += (int)$quantity;
+                    $cartProducts['totals']['price'] += (int)$quantity * $currentProduct["prix"];
                 }
             }
         }
