@@ -67,12 +67,12 @@ $gateaux = getDetails();
         <div class="payement">
             <a id="btnEmpty" href="index.php?action=empty"></a>
             <div class="cart-status">
-                <div>Total Quantity:
+                <div>Total Quantite:
                     <span id="total-quantity">
                         <?= $gateaux['totals']['quantity']; ?>
                     </span>
                 </div>
-                <div>Total Price:
+                <div>Total Prix:
                     <span id="total-price">
                         <?= $gateaux['totals']['price']; ?>
                     </span>

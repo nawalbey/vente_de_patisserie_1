@@ -619,8 +619,17 @@ footer span {
   border: 1px solid white;
   padding: 0 200px;
   margin: 55px auto 0 auto;
-  width: 800px;
+  width: 700px;
+  transition: background-color 0.3s ease; /* Ajout de la transition */
+}  
+
+
+/* Ajout de styles pour le survol */
+.txt-heading:hover {
+  background-color: 
+#563b2c; /* Couleur de fond au survol */
 }
+
 
 .payement {
   margin-bottom: 25px;
@@ -634,4 +643,3 @@ footer span {
   font-size: 20px;
   margin-top: 10px;
 }
-
