@@ -10,14 +10,8 @@ use Controller\BaseController;
 /**
  * Summary of ProductController
  */
-class OrderController extends BaseController
+class CommandesController extends BaseController
 {
-
-    /**
-     * Summary of edit
-     * @param mixed $id
-     * @return void
-     */
     public function edit($id)
     {
         

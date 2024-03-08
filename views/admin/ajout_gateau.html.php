@@ -4,7 +4,7 @@
 
 <div class="ajout_admin_gateau">
 
-    <form action="../model/action_admin.php" method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
         <h1>Ajoutez votre gateau ici</h1>
         <div class="admin_form">
             <div class='admin_flex'>
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="admin_flex_envoyer">
-            <input type="submit" name="ajout_gateau" value="Envoyer">
+            <input type="submit" name="ajout_gateau" value="ajout_gateau">
         </div>
     </form>
 </div>

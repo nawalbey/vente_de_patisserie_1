@@ -5,22 +5,22 @@
 namespace Controller;
 
 use Model\Repository\DetailRepository;
-use Model\Repository\OrderRepository;
-use Model\Repository\ProductRepository;
+use Model\Repository\GateauxRepository;
+use Model\Repository\CommandesRepository;
 
 /**
  * Summary of OrderController
  */
-class OrderController extends BaseController
+class CommandeController extends BaseController
 {
-    private ProductRepository $productRepository;
-    private OrderRepository $orderRepository;
+    private GateauxRepository $GateauxRepository;
+    private CommandesRepository $orderRepository;
     private DetailRepository $detailRepository;
 
     public function __construct()
     {
-        $this->productRepository = new ProductRepository;
-        $this->orderRepository = new OrderRepository;
+        $this->GateauxRepository = new GateauxRepository;
+        $this->orderRepository = new CommandesRepository;
         $this->detailRepository = new DetailRepository;
 
     }
@@ -39,13 +39,6 @@ class OrderController extends BaseController
         $cart = $_SESSION["cart"];
 
         $orderId = $this->orderRepository->insertOrder();
-
-        foreach ($cart as $value) {
-
-            $this->detailRepository->insertDetail($value["product"]->getId(), $orderId, $value["quantity"]);
-
-            $this->productRepository->updateQuantityInProduct($value["product"]->getId(), $value["quantity"]);
-        }
         $this->remove("cart");
         $this->remove("nombre");
 
@@ -54,11 +47,6 @@ class OrderController extends BaseController
 
     }
 
-    /**
-     * Summary of edit
-     * @param mixed $id
-     * @return void
-     */
     public function edit($id)
     {
 

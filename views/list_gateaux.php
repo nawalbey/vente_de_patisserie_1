@@ -15,30 +15,30 @@ require_once "../model/function.php";
     <table class="table">
         <thead>
             <tr>
-                <th>id gateaux</th>
-                <th>nom du gateaux</th>
+                <th>id Gateaux</th>
+                <th>nom du Gateaux</th>
                 <th>description</th>
                 <th>prix</th>
                 <th>photo</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($listgateaux as $gateaux) { ?>
+            <?php foreach ($listGateaux as $Gateaux) { ?>
                     <tr>
 
                         <td>
-                            <?= $gateaux['id_gateaux']; ?>
+                            <?= $Gateaux['id_Gateaux']; ?>
 
 
                         </td>
                         <td>
-                            <?= $gateaux['nom_du_gateaux']; ?>
+                            <?= $Gateaux['nom_du_Gateaux']; ?>
                         </td>
                         <td>
-                            <?= $gateaux['description']; ?>
+                            <?= $Gateaux['description']; ?>
                         </td>
                         <td>
-                            <?= $gateaux['prix']; ?>
+                            <?= $Gateaux['prix']; ?>
                         </td>
 
                     </tr>

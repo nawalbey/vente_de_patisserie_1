@@ -4,23 +4,15 @@ namespace Model\Entity;
 class Detail extends BaseEntity
 {
     private $quantity;
-    private $order_id;
-    private $product_id;
+    private Commande $commande;
+    private Gateaux $gateau;
 
 
-    /**
-     * Get the value of quantity
-     */
     public function getQuantity()
     {
         return $this->quantity;
     }
 
-    /**
-     * Set the value of quantity
-     *
-     * @return  self
-     */
     public function setQuantity($quantity)
     {
         $this->quantity = $quantity;
@@ -28,43 +20,26 @@ class Detail extends BaseEntity
         return $this;
     }
 
-    /**
-     * Get the value of order_id
-     */
-    public function getOrderId()
+    public function getCommande()
     {
-        return $this->order_id;
+        return $this->commande;
     }
 
-    /**
-     * Set the value of order_id
-     *
-     * @return  self
-     */
-    public function setOrderId($orderId)
+    public function setCommande($commande)
     {
-        $this->order_id = $orderId;
-
+        $this->commande = $commande;
         return $this;
     }
 
-    /**
-     * Get the value of product_id
-     */
-    public function getProductId()
+    public function getGateau()
     {
-        return $this->product_id;
+        return $this->gateau;
     }
 
-    /**
-     * Set the value of product_id
-     *
-     * @return  self
-     */
-    public function setProductId($productId)
+    public function setGateau($gateau)
     {
-        $this->product_id = $productId;
-
+        $this->gateau = $gateau;
         return $this;
     }
+
 }

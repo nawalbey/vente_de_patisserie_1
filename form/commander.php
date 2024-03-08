@@ -3,10 +3,10 @@ session_start();
 include_once('../inc/database.php');
 require_once('../inc/cart.php');
 
-$gateaux = getDetails();
+$Gateaux = getDetails();
 $id_user = $_SESSION['id'];
 
-var_dump($gateaux);
+var_dump($Gateaux);
 if (isset($_GET['commande']) && $_GET['commande'] == 'true' && isset($_SESSION['id'])) {
     $db = dbConnexion();
     $request = $db->prepare('INSERT INTO commande (numero_commande, date_de_commande, id_user) VALUES (RAND() * (5000 - 200) + 200,NOW(),?)');
@@ -20,8 +20,8 @@ if (isset($_GET['commande']) && $_GET['commande'] == 'true' && isset($_SESSION['
     $id_commande = $db->lastInsertId();
 
     $request = $db->prepare('INSERT INTO detail (id_commande,id_gateau,quantite) VALUES (?,?,?)');
-    foreach ($gateaux['products'] as $articlesQuantite) {
-        $id = $articlesQuantite['product']['id_gateaux'];
+    foreach ($Gateaux['products'] as $articlesQuantite) {
+        $id = $articlesQuantite['product']['id_Gateaux'];
         $quantite = $articlesQuantite['quantity'];
 
         try {
@@ -29,7 +29,7 @@ if (isset($_GET['commande']) && $_GET['commande'] == 'true' && isset($_SESSION['
             unset($_SESSION['cart']);
             unset($_SESSION['nombre']);
             $_SESSION['commande_passee'] = "Votre commande a bien été passée";
-            header('Location: http://localhost/vente_de_patisserie_1/views/gateaux.php');
+            header('Location: http://localhost/vente_de_patisserie_1/views/Gateaux.php');
         } catch (PDOException $e) {
             echo $e->getMessage();
         }

@@ -4,7 +4,8 @@
  */
 namespace Controller;
 
-use Model\Repository\ProductRepository;
+use Model\Entity\Gateaux;
+use Model\Repository\GateauxRepository;
 
 /**
  * Summary of ProductController
@@ -19,7 +20,7 @@ class ProductController extends BaseController
     public function show($id)
     {
         if (!empty($id) && is_numeric($id)) {
-            $pr = new ProductRepository;
+            $pr = new GateauxRepository;
             $product = $pr->findById('product', $id);
             if (empty($product)) {
                 $this->setMessage("danger", "Le produit NO $id n'existe pas");

@@ -2,29 +2,27 @@
 
 namespace Controller;
 
-use Model\Entity\Product;
-use Form\ProductHandleRequest;
-use Model\Repository\ProductRepository;
 use Controller\BaseController;
+use Model\Entity\Gateaux;
+use Form\GateauxHandleRequest;
+use Model\Repository\GateauxRepository;
 
 class HomeController extends BaseController
 {
-    private ProductRepository $productRepository;
-    private ProductHandleRequest $form;
-    private Product $product;
+    private GateauxRepository $gateauxRepository;
+    private Gateaux $gateau;
 
     public function __construct()
     {
-        $this->productRepository = new ProductRepository;
-        $this->form = new ProductHandleRequest;
-        $this->product = new Product;
+        $this->gateauxRepository = new GateauxRepository;
+        $this->gateau = new Gateaux;
     }
     public function list()
     {
-        $products = $this->productRepository->findAll($this->product);
+        $gateaux = $this->gateauxRepository->findAll($this->gateau);
         $this->render("home.html.php", [
-            "h1" => "Liste des produits",
-            "products" => $products
+            "h1" => "Liste des gateaux",
+            "gateaux" => $gateaux
         ]);
     }
 }

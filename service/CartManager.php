@@ -2,18 +2,18 @@
 
 namespace Service;
 
-use Model\Repository\ProductRepository;
+use Model\Repository\GateauxRepository;
 
 /**
  * Summary of ProductController
  */
 class CartManager
 {
-    private ProductRepository $productRepository;
+    private GateauxRepository $productRepository;
 
     public function __construct()
     {
-        $this->productRepository = new ProductRepository;
+        $this->productRepository = new GateauxRepository;
     }
 
     public function addCart($id)

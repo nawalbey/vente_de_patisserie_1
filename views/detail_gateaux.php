@@ -3,7 +3,8 @@ include_once('../inc/header.php');
 ?>
 
 <div class="class5">
-    <h1>Detail de : <?= $_SESSION['detail_gateau']['nom_du_gateaux'] ?></h1>
+    <h1>Detail de :
+        <?= $_SESSION['detail_gateau']['nom_du_Gateaux'] ?></h1>
     <section class='card_detail'>
 
         <div class="card card-height" style="width: 18rem;">
@@ -14,7 +15,7 @@ include_once('../inc/header.php');
                     €
                 </p>
                 <h5 class="card-title">
-                    <?= $_SESSION['detail_gateau']['nom_du_gateaux']; ?>
+                    <?= $_SESSION['detail_gateau']['nom_du_Gateaux']; ?>
                 </h5>
                 <p class="card-text">
                     <?= $_SESSION['detail_gateau']['description']; ?>

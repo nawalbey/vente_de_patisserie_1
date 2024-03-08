@@ -10,7 +10,7 @@ class ImageHandler
     {
         $fileType = ["jpg", "jpeg", "png", "gif", "svg", "webp"];
         // Emplacement où vous souhaitez enregistrer le fichier
-        $target_dir = UPLOAD_PRODUCTS_IMG;
+        $target_dir = UPLOAD_GATEAUX_IMG;
         // Construire un nom de fichier unique en ajoutant un horodatage au nom d'origine
         $originalFileName = basename($_FILES["photo"]["name"]);
         $timestamp = time(); // Utilisation de l'horodatage actuel

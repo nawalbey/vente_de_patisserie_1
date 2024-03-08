@@ -9,7 +9,7 @@ if (isset($_GET['id_gateau'])) {
         // on récupère l'id de $_GET pour le stocker dans une variable
         $id = $_GET['id_gateau'];
         $db = dbConnexion();
-        $request = $db->prepare('SELECT * FROM list_gateaux WHERE id_gateaux = ?');
+        $request = $db->prepare('SELECT * FROM list_Gateaux WHERE id_Gateaux = ?');
         try {
             $request->execute([$id]);
             // après execute, il nous renvoit le resultat de la requête (soit un tableau s'il trouve, soit null si rien n'a été trouvé)
@@ -17,9 +17,9 @@ if (isset($_GET['id_gateau'])) {
             // Si il a un resultat : 
             if ($gateau) {
                 // On stock le tableau dans la session sous la clé 'detail_gateau' qui contiendra toutes les informations,
-                // pour y acceder on parcourera le tableau comme ceci: $_SESSION['detail_gateau']['id_gateaux']
+                // pour y acceder on parcourera le tableau comme ceci: $_SESSION['detail_gateau']['id_Gateaux']
                 $_SESSION['detail_gateau'] = $gateau;
-                header('Location: http://localhost/vente_de_patisserie_1/views/detail_gateaux.php');
+                header('Location: http://localhost/vente_de_patisserie_1/views/detail_Gateaux.php');
             } else {
                 $_SESSION['erreur_id_detail'] = "Le gateau n'a pas été trouvé ! ";
             }

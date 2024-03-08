@@ -2,24 +2,22 @@
 
 namespace Model\Repository;
 
-use Model\Entity\Order;
+use Model\Entity\Commande;
 use Service\Session;
 
-class OrderRepository extends BaseRepository
+class CommandesRepository extends BaseRepository
 {
     public function insertOrder()
     {
-        $order = new Order;
+        $order = new Commande;
         $order->setUserId($_SESSION["user"]->getId());
 
         try {
 
             $this->dbConnection->beginTransaction();
-            $sql = "INSERT INTO `order` (state, user_id, created_at) VALUES (:state, :userId, NOW())";
+            $sql = "INSERT INTO `commande` (numero_commande,date_de_commande,id_user) VALUES (RAND() * (5000 - 200) + 200,NOW(),:userId)";
 
             $request = $this->dbConnection->prepare($sql);
-
-            $request->bindValue(":state", $order->getState());
             $request->bindValue(":userId", $order->getUserId());
 
             $request = $request->execute();
@@ -28,13 +26,7 @@ class OrderRepository extends BaseRepository
             // Validez la transaction si tout s'est bien passé
             $this->dbConnection->commit();
 
-            if ($request) {
-                if ($request == 1) {
-                    return $idOrder;
-                }
-                Session::addMessage("danger", "Erreur : la commande n'a pas été enregisté");
-                return false;
-            }
+           return $idOrder;
         } catch (\PDOException $e) {
 
             // En cas d'erreur, annulez la transaction
@@ -44,7 +36,7 @@ class OrderRepository extends BaseRepository
     }
 
 
-    public function updateOrder(Order $order)
+    public function updateOrder(Commande $order)
     {
         $sql = "UPDATE order 
                 SET state = :state, user_id = :userId

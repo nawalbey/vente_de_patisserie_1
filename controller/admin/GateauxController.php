@@ -4,40 +4,33 @@
  */
 namespace Controller\Admin;
 
-use Model\Entity\Product;
 use Service\ImageHandler;
-use Model\Entity\Category;
 use Controller\BaseController;
 use Form\GateauxHandleRequest;
-use Form\ProductHandleRequest;
 use Model\Entity\Gateaux;
 use Model\Repository\GateauxRepository;
-use Model\Repository\CategoryRepository;
 
-/**
- * Summary of ProductController
- */
 class GateauxController extends BaseController
 {
-    private GateauxRepository $gateauxRepository;
+    private GateauxRepository $GateauxRepository;
     private GateauxHandleRequest $form;
     private Gateaux $product;
 
     public function __construct()
     {
-        $this->gateauxRepository = new GateauxRepository;
-        $this->form = new ProductHandleRequest;
+        $this->GateauxRepository = new GateauxRepository;
+        $this->form = new GateauxHandleRequest;
         $this->product = new Gateaux;
     }
 
     public function list()
     {
 
-        $list_gateaux = $this->gateauxRepository->findAll($this->product);
-        
+        $list_Gateaux = $this->GateauxRepository->findAll($this->product);
+
         $this->render("admin/product/index.html.php", [
             "h1" => "Liste des produits",
-            "products" => $list_gateaux
+            "products" => $list_Gateaux
         ]);
     }
 
@@ -48,42 +41,36 @@ class GateauxController extends BaseController
         $this->form->handleInsertForm($product);
 
         if ($this->form->isSubmitted() && $this->form->isValid()) {
-            
+
             ImageHandler::handelPhoto($product);
-            
-            $this->gateauxRepository->insertProduct($product);
-            
+
+            $this->GateauxRepository->insertProduct($product);
+
             return redirection(addLink("home"));
         }
 
         $errors = $this->form->getEerrorsForm();
 
-        return $this->render("product/form.html.php", [
+        return $this->render("admin/ajout_gateau.html.php", [
             "h1" => "Ajouter un nouveau produit",
             "product" => $product,
             "errors" => $errors,
-            "categories"=> $categories
         ]);
     }
 
-    /**
-     * Summary of edit
-     * @param mixed $id
-     * @return void
-     */
     public function edit($id)
     {
         if (!empty($id) && is_numeric($id)) {
 
             /**
-             * @var Product
+             * @var Gateaux
              */
             $product = $this->product;
 
             $this->form->handleEditForm($product);
 
             if ($this->form->isSubmitted() && $this->form->isValid()) {
-                $this->productRepository->updateProduct($product);
+                $this->GateauxRepository->updateProduct($product);
                 return redirection(addLink("home"));
             }
 
@@ -104,38 +91,16 @@ class GateauxController extends BaseController
 
                 $product = $this->product;
             } else {
-                $this->setMessage("danger",  "ERREUR 404 : la page demandé n'existe pas");
+                $this->setMessage("danger", "ERREUR 404 : la page demandé n'existe pas");
             }
         } else {
-            $this->setMessage("danger",  "ERREUR 404 : la page demandé n'existe pas");
+            $this->setMessage("danger", "ERREUR 404 : la page demandé n'existe pas");
         }
 
         $this->render("product/form.html.php", [
             "h1" => "Suppresion du produit n°$id ?",
             "product" => $product,
             "mode" => "suppression"
-        ]);
-    }
-
-    public function show($id)
-    {
-        if ($id) {
-            if (is_numeric($id)) {
-
-                $product = $this->productRepository->findProductAndCategoryById($id);
-                $product->setCategory($product);
-                
-            } else {
-                $this->setMessage("danger",  "Erreur 404 : cette page n'existe pas");
-            }
-        } else {
-            $this->setMessage("danger",  "Erreur 403 : vous n'avez pas accès à cet URL");
-            redirection(addLink("product", "list"));
-        }
-
-        $this->render("product/show.html.php", [
-            "product" => $product,
-            "h1" => "Fiche product"
         ]);
     }
 }

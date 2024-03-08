@@ -1,7 +1,7 @@
 <?php
 namespace Model\Entity;
 
-class Order extends BaseEntity
+class Commande extends BaseEntity
 {
     private $state;
     private $user_id;

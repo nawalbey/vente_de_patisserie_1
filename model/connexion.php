@@ -39,7 +39,7 @@ if (isset($_POST['connexion'])) {
                     $_SESSION["prenom"] = $userInfo['prenom'];
                     $_SESSION["email"] = $userInfo["email"];
                     $_SESSION["role"] = $userInfo["role"];
-                    header("Location: http://localhost/vente_de_patisserie_1/views/gateaux.php");
+                    header("Location: http://localhost/vente_de_patisserie_1/views/Gateaux.php");
                 }
             } else {
                 echo "Mot de passe incorrect";

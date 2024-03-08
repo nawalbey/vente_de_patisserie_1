@@ -5,11 +5,11 @@
 require "autoload.php";
 session_start();
 include __DIR__ . "/functions.inc.php";
-define("ROOT", "/app_shopping/");
+define("ROOT", "/vente_de_patisserie_1/");
 define("ROLE_USER", "ROLE_USER");
 define("ROLE_ADMIN", "ROLE_ADMIN");
 define("INSERTED", "Enregistrer");
 define("UPDATED", "Modifier");
 define("DELETED", "Spprimr");
-define("UPLOAD_PRODUCTS_IMG", "uploads/products/");
+define("UPLOAD_GATEAUX_IMG", "uploads/gateaux/");
 define("EN_ATTENTE", "En Attente");

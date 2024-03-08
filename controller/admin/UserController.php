@@ -7,7 +7,7 @@ use Model\Repository\UserRepository;
 use Form\UserHandleRequest;
 use Controller\BaseController;
 
-class UserController extends BaseController
+class UsersController extends BaseController
 {
     private $userRepository;
     private $form;
@@ -78,10 +78,10 @@ class UserController extends BaseController
 
                 $user = $this->user;
             } else {
-                $this->setMessage("danger",  "ERREUR 404 : la page demandé n'existe pas");
+                $this->setMessage("danger", "ERREUR 404 : la page demandé n'existe pas");
             }
         } else {
-            $this->setMessage("danger",  "ERREUR 404 : la page demandé n'existe pas");
+            $this->setMessage("danger", "ERREUR 404 : la page demandé n'existe pas");
         }
 
         $this->render("user/form.html.php", [
@@ -98,10 +98,10 @@ class UserController extends BaseController
 
                 $user = $this->user;
             } else {
-                $this->setMessage("danger",  "Erreur 404 : cette page n'existe pas");
+                $this->setMessage("danger", "Erreur 404 : cette page n'existe pas");
             }
         } else {
-            $this->setMessage("danger",  "Erreur 403 : vous n'avez pas accès à cet URL");
+            $this->setMessage("danger", "Erreur 403 : vous n'avez pas accès à cet URL");
             redirection(addLink("user"));
         }
 
@@ -110,5 +110,4 @@ class UserController extends BaseController
             "h1" => "Fiche user"
         ]);
     }
-
 }

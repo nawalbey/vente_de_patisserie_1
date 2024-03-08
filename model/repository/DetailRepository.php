@@ -2,45 +2,44 @@
 
 namespace Model\Repository;
 
-use Model\Entity\Order;
-use Model\Entity\Detail;
 use Service\Session;
+use Model\Entity\Detail;
+use Model\Entity\Gateaux;
+use Model\Entity\Commande;
 
 class DetailRepository extends BaseRepository
 {
-    public function insertDetail($productId, $orderId, $quantity)
+    public function insertDetail(Commande $commande, Gateaux $gateau, $quantite)
     {
         $detail = new Detail;
-        $detail->setQuantity($quantity)
-            ->setOrderId($orderId)
-            ->setProductId($productId);
+        $detail->setCommande($commande)
+            ->setGateau($gateau)
+            ->setQuantity($quantite);
 
         try {
             $this->dbConnection->beginTransaction();
 
-            $sql = "INSERT INTO `detail` (quantity, order_id, product_id, created_at) VALUES (:quantity, :orderId, :productId, NOW())";
+            $sql = "INSERT INTO `detail` (id_commande,id_gateau,quantite) VALUES (:commande, :gateau,:quantite)";
 
             $request = $this->dbConnection->prepare($sql);
 
-            $request->bindValue(":quantity", $quantity);
-            $request->bindValue(":orderId", $orderId);
-            $request->bindValue(":productId", $productId);
+            $request->bindValue(":commande", $detail->getCommande()->getId());
+            $request->bindValue(":gateau", $detail->getGateau()->getId());
+            $request->bindValue(":quantite", $detail->getQuantity());
 
             $request = $request->execute();
 
             // Validez la transaction si tout s'est bien passé
             $this->dbConnection->commit();
-
         } catch (\PDOException $e) {
             // En cas d'erreur, annulez la transaction
-
             $this->dbConnection->rollBack();
             echo "Erreur : " . $e->getMessage();
         }
     }
 
 
-    public function updateOrder(Order $order)
+    public function updateOrder(Commande $order)
     {
         $sql = "UPDATE order 
                 SET state = :state, user_id = :userId

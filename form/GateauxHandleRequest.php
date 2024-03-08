@@ -8,7 +8,7 @@ use Service\ImageHandler;
 use Service\Session as Sess;
 use Model\Repository\GateauxRepository;
 
-class ProductHandleRequest extends BaseHandleRequest
+class GateauxHandleRequest extends BaseHandleRequest
 {
     private $productRepository;
     private $imageTraitement;

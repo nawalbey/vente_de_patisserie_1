@@ -16,11 +16,11 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     removeItem($id);
-    header("Location:". SERVER.PROJECT."/views/panier.php");
+    header("Location:" . SERVER . PROJECT . "/views/panier.php");
     // on boucle sur chaque article du panier 
     // foreach ($supp as $clef => $value) {
     //     // si l'id donné dans la requete est égal à l'id d'un des articles
-    //     if ($id == $value['article']['id_gateaux']) {
+    //     if ($id == $value['article']['id_Gateaux']) {
     //         // On supprime l'article de la session
     //         unset($_SESSION['cart'][$clef]);
 
