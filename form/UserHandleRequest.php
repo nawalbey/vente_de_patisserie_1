@@ -64,16 +64,13 @@ class UserHandleRequest extends BaseHandleRequest
     }
     public function handleLogin()
     {
-        if (($_SERVER['REQUEST_METHOD'] === 'POST') && isset($_POST["login"])) {
+        if (($_SERVER['REQUEST_METHOD'] === 'POST') && isset($_POST["connexion"])) {
 
             extract($_POST);
             $errors = [];
             if (empty($email) || empty($password)) {
                 $errors[] = "Veuillez inserer vos coordonnées";
             } else {
-                /**
-                 * @var User
-                 */
                 $user = $this->userRepository->loginUser($email);
                 if (empty($user)) {
                     $errors[] = "Il n'y a pas d'utilisateur avec cet email";

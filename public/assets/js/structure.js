@@ -1,22 +1,25 @@
+var urlPanier = window.location.origin + "/vente_de_patisserie_1/cart/show";
 document.addEventListener("DOMContentLoaded", function () {
   $(".addToCartBtn").on("click", function (event) {
     event.preventDefault();
     var form = $(this).closest(".add-to-cart-form");
     var formData = form.serialize();
+    console.log(formData);
     $.ajax({
       type: "POST",
-      url: "../model/achete.php",
+      url: urlPanier,
       data: formData + "&ajouterPanier=panier",
       dataType: "json",
       success: function (response) {
         // response = JSON.parse(response);
+        var reponse = JSON.parse(response);
         if (response) {
-          $("#nbArticles").text(response.totalQuantity);
+          $("#nbArticles").text(reponse.nombre);
         }
         // ... le reste du code
       },
       error: function (xhr, status, error) {
-        console.log("Erreur AJAX:");
+        console.log("Erreur AJAX:"+ error);
         console.log("Status: " + status);
         console.log("Réponse du serveur:");
         console.log(xhr.responseText);

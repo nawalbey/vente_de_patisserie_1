@@ -20,10 +20,11 @@ class CartManager
     {
         $quantity = $_GET["qte"] ?? 1;
         $pr = $this->productRepository;
-        $product = $pr->findById('product', $id);
+        $product = $pr->findById('gateaux', $id);
 
-        if (!isset($_SESSION["cart"]))
+        if (!isset($_SESSION["cart"])){
             $_SESSION["cart"] = [];
+        }
 
         $cart = $_SESSION["cart"]; // on récupère ce qu'il y a dans le cart en session
 

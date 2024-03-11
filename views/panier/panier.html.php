@@ -1,11 +1,10 @@
-
 <div class="class4">
     <h1>Panier</h1>
     <div class="container-height">
         <div class="panier">
             <?php
             if (!empty($_SESSION['cart'])) {
-                foreach ($Gateaux["products"] as $gateau) { ?>
+                foreach ($gateaux["product"] as $gateau) { ?>
                         <div class="card" style="width: 18rem;">
                             <img src='../asset/img/<?= $gateau["product"]['photo']; ?>' class="card-img-top" alt="verrine">
                             <div class="card-body">
@@ -14,14 +13,14 @@
                                     €
                                 </p>
                                 <h5 class="card-title">
-                                    <?php echo $gateau["product"]['nom_du_Gateaux']; ?>
+                                    <?php echo $gateau["product"]['nom_du_gateaux']; ?>
                                 </h5>
                                 <p class="card-text">
                                     <?php echo $gateau["product"]['description']; ?>
                                 </p><br>
                                 <div class="def-number-input number-input safari_only d-flex formCart">
-                                    <button class="minus update-produit" onclick="decrement_quantity(<?= $gateau['product']['id_Gateaux'] ?>, '<?= $gateau['product']['prix']; ?>')">-</button>
-                                    <div class="input-quantity" id="input-quantity-<?= $gateau["product"]['id_Gateaux'] ?>">
+                                    <button class="minus update-produit" onclick="decrement_quantity(<?= $gateau['product']['id_gateaux'] ?>, '<?= $gateau['product']['prix']; ?>')">-</button>
+                                    <div class="input-quantity" id="input-quantity-<?= $gateau["product"]['id_gateaux'] ?>">
                                         <p class="card-text1">
                                             <?php if (is_array($gateau) && isset($gateau["quantity"])) { ?>
                                                     <i class="fa-solid fa-cookie-bite">
@@ -30,16 +29,16 @@
                                             <?php } ?>
                                         </p>
                                     </div>
-                                    <button class="plus update-produit" onclick="increment_quantity(<?= $gateau['product']['id_Gateaux']; ?>, <?= $gateau['product']['prix']; ?>)">
+                                    <button class="plus update-produit" onclick="increment_quantity(<?= $gateau['product']['id_gateaux']; ?>, <?= $gateau['product']['prix']; ?>)">
                                         +</button>
                                 </div>
-                                <div class="cart-info price" id="cart-price-<?= $gateau["product"]['id_Gateaux']; ?>">
+                                <div class="cart-info price" id="cart-price-<?= $gateau["product"]['id_gateaux']; ?>">
                                     <?= ($gateau["product"]['prix'] * $gateau["quantity"]) . " €"; ?>
                                 </div>
                                 <div
                                     class="button3">
                                     <!-- Bouton Supprimer -->
-                                    <a href="../model/supprimer_gateau.php?id=<?= $gateau["product"]['id_Gateaux'] ?>" class="btn">Supprimer</a>
+                                    <a href="../model/supprimer_gateau.php?id=<?= $gateau["product"]['id_gateaux'] ?>" class="btn">Supprimer</a>
 
                                 </div>
                             </div>
@@ -64,12 +63,12 @@
             <div class="cart-status">
                 <div>Total Quantite:
                     <span id="total-quantity">
-                        <?= $Gateaux['totals']['quantity']; ?>
+                        <?= $gateaux['quantity']; ?>
                     </span>
                 </div>
                 <div>Total Prix:
                     <span id="total-price">
-                        <?= $Gateaux['totals']['price']; ?>
+                        <?= $gateaux['totals']['price']; ?>
                     </span>
                 </div>
             </div>
@@ -83,6 +82,4 @@
             </div>
     <?php } ?>
 
-    <?php include_once "../inc/footer2.php" ?>
-</div></div>
 

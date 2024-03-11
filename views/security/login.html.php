@@ -2,12 +2,8 @@
     <div class="container-height">
         <div></div>
         <div class="container container_login">
-            <form class="form1" action="../model/connexion.php" method="post">
+            <form class="form1" method="post">
                 <h1>connexion</h1>
-                <div>
-                    <h2><?= isset($_SESSION['message_connexion']) ? $_SESSION['message_connexion'] : null; ?></h2>
-                    <?php unset($_SESSION['message_connexion']); ?>
-                </div>
                 <div class="form-group">
                     <label for="email">Email :</label>
                     <input type="email" class="form-control" id="email" name="email">

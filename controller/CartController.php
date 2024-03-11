@@ -4,16 +4,21 @@
  */
 namespace Controller;
 
-use Model\Entity\Product;
-use Form\ProductHandleRequest;
-use Model\Repository\ProductRepository;
+use Service\Session;
 use Service\CartManager;
+use Form\PanierHandleRequest;
 
 /**
  * Summary of ProductController
  */
 class CartController extends BaseController
 {
+
+    private $form;
+
+    public function __construct(){
+        $this->form = new PanierHandleRequest;
+    }
     /**
      * Summary of add
      * @param mixed $id
@@ -23,7 +28,7 @@ class CartController extends BaseController
     {
         $cm = new CartManager();
         $nb = $cm->addCart($id);
-        echo $nb;
+        echo json_encode($nb);
     }
 
 
@@ -33,9 +38,10 @@ class CartController extends BaseController
      */
     public function show()
     {
-
-        $this->render("cart/show.html.php", [
-            "h1" => "Fiche cart"
+        $cart = Session::getCart();
+        $this->render("panier/panier.html.php", [
+            "h1" => "Fiche cart",
+            "gateaux" => $cart,
         ]);
 
     }

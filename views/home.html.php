@@ -18,9 +18,9 @@
                         </p>
                         <div class='btnAchat'>
                             <form method="post" class="add-to-cart-form">
-                                <input type="hidden" name="id_Gateaux" value="<?= $gateau->getId(); ?>">
+                                <input type="hidden" name="id_gateaux" value="<?= $gateau->getId(); ?>">
                                 <input type="hidden" name="qte" value="1">
-                                <input type="hidden" name="nom_du_Gateaux" value="<?= $gateau->getNomGateau(); ?>">
+                                <input type="hidden" name="nom_du_gateaux" value="<?= $gateau->getNomGateau(); ?>">
                                 <input type="hidden" name="photo" value="<?= $gateau->getPhoto(); ?>">
                                 <input type="hidden" name="prix" value="<?= $gateau->getPrix(); ?>">
                                 <input type="hidden" name="description" value="<?= $gateau->getDescription(); ?>">

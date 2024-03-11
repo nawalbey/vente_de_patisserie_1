@@ -13,7 +13,7 @@
                 <div class="bienvenue1">
                     <h3>Bienvenue
                         <?= $userConnecte->getPrenom(); ?></h3>
-                    <a href="<?php addLink('user', 'logout') ?>" class="btn color1">Se déconnecter</a>
+                    <a href="<?= addLink('user', 'logout') ?>" class="btn color1">Se déconnecter</a>
                     <?php if ($userConnecte->getRole() == 'admin') { ?>
                             <a class="btn color1 ms-2" href="../admin/admin.php">Admin</a>
                     <?php } ?>
@@ -23,7 +23,7 @@
                 <a href="<?= addLink('user','login'); ?>" class="btn color1">login</a>
         <?php } ?>
         <button class="btn color1 ms-2" type="button">
-            <a href="../views/panier.php">
+            <a href="<?= addLink('cart','show') ?>">
                 <i class="fa-solid fa-cart-arrow-down"></i>
             </a>
             <span id='nbArticles'><?= $_SESSION['nombre'] ?? ''; ?>

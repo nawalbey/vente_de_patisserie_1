@@ -34,6 +34,11 @@ abstract class Session
     {
         return $_SESSION["user"] ?? false;
     }
+
+    public static function getCart(){
+        return $_SESSION["cart"] ?? false;
+    }
+
     public static function isConnected()
     {
         if (isset($_SESSION["user"]))
