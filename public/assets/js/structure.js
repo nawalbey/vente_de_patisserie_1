@@ -1,4 +1,4 @@
-var urlPanier = window.location.origin + "/vente_de_patisserie_1/cart/show";
+var urlPanier = window.location.origin + "/vente_de_patisserie_1/cart/addToCart";
 document.addEventListener("DOMContentLoaded", function () {
   $(".addToCartBtn").on("click", function (event) {
     event.preventDefault();
@@ -9,21 +9,32 @@ document.addEventListener("DOMContentLoaded", function () {
       type: "POST",
       url: urlPanier,
       data: formData + "&ajouterPanier=panier",
-      dataType: "json",
+      dataType: 'json',
       success: function (response) {
-        // response = JSON.parse(response);
-        var reponse = JSON.parse(response);
-        if (response) {
-          $("#nbArticles").text(reponse.nombre);
+        try {
+          response = JSON.parse(response);
+          console.log(typeof response);
+          $("#nbArticles").text(response.nombre);
+        } catch (error) {
+          console.error("Erreur lors de la conversion JSON :", error);
         }
-        // ... le reste du code
       },
       error: function (xhr, status, error) {
-        console.log("Erreur AJAX:"+ error);
-        console.log("Status: " + status);
-        console.log("Réponse du serveur:");
-        console.log(xhr.responseText);
-        // console.log("Erreur: " + error);
+        console.log("Erreur AJAX:", error);
+        console.log("Status:", status);
+        console.log("Réponse du serveur:", xhr.responseText);
+
+        // Affiche aussi les propriétés détaillées de l'objet xhr
+        console.log("Statut de la requête (XHR):", xhr.status);
+        console.log("Texte du statut de la requête (XHR):", xhr.statusText);
+
+        // Si le serveur renvoie du JSON mal formé, affiche l'erreur JSON
+        try {
+          var jsonError = JSON.parse(xhr.responseText.trim());
+          console.error("Erreur JSON du serveur:", jsonError);
+        } catch (jsonParseError) {
+          console.error("Erreur lors de la conversion JSON :", jsonParseError);
+        }
       },
     });
   });

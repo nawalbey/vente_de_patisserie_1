@@ -24,11 +24,9 @@ class CartController extends BaseController
      * @param mixed $id
      * @return void
      */
-    public function addToCart($id)
+    public function addToCart()
     {
-        $cm = new CartManager();
-        $nb = $cm->addCart($id);
-        echo json_encode($nb);
+        $this->form->handleInsertForm();
     }
 
 
@@ -38,10 +36,24 @@ class CartController extends BaseController
      */
     public function show()
     {
+        $messageVide = "";
         $cart = Session::getCart();
+        if(!$cart){
+            $messageVide = 'Votre panier est vide';
+        }else {
+            $cart['totals_quantite'] = 0;
+            foreach($cart as &$c){
+                if (is_array($c) && array_key_exists('quantity', $c)) {
+                    $cart['totals_quantite'] += $c['quantity'];
+                }
+            }
+            unset($c);
+        }
+
         $this->render("panier/panier.html.php", [
             "h1" => "Fiche cart",
             "gateaux" => $cart,
+            'messageVide' => $messageVide,
         ]);
 
     }

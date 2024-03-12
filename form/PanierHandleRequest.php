@@ -19,10 +19,9 @@ class PanierHandleRequest extends BaseHandleRequest
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST)) {
             extract($_POST);
-            $errors = [];
+            $id_gateaux = $_POST['id_gateaux'];
             $nombre = $this->cartManager->addCart($id_gateaux);
-
-            echo json_encode(['nombre' => $nombre]);
+           echo json_encode(['nombre' => $nombre]);
         } else {
             return false;
         }
