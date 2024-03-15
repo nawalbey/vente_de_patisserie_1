@@ -22,7 +22,7 @@ RewriteRule ^admin/?$                             index.php?doc=admin [L,QSA]
 RewriteRule ^admin/(\w+)/?$                       index.php?doc=admin&controller=$1 [L,QSA]
 RewriteRule ^admin/(\w+)/(\w+)$                   index.php?doc=admin&controller=$1&method=$2 [L,QSA]
 RewriteRule ^admin/(\w+)/(\w+)/(\S+)$             index.php?doc=admin&controller=$1&method=$2&id=$3 [L,QSA]
-
+# ^$ si il y a rien (vide)
 RewriteRule ^$                              index.php [L]
 
 #[QSA] signifie "Query String Append" (ajout de la chaîne de requête) et indique que la chaîne de requête (c'est-à-dire les paramètres d'URL après le point d'interrogation ?) de l'URL d'origine doit être conservée et ajoutée à l'URL réécrite. Cela est couramment utilisé pour conserver les paramètres d'URL lors de la réécriture.

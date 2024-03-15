@@ -1,7 +1,6 @@
 <?php
+// require on as importe le fichier inc et init.inc.php
 require "inc/init.inc.php";
-// d_die($_SERVER);
-// d_die(ROOT);
 /* 
 URL: index.php?controller=user&method=update&id=32
 */
@@ -10,11 +9,13 @@ $controller = $_GET["controller"] ?? "home";
 $method = $_GET["method"] ?? "list";
 $id = $_GET["id"] ?? null;
 
+// !empty determine si une varialbe est considere vide.
 if (!empty($admin)) {
     $classController = "Controller\\admin\\" . ucfirst($controller) . "Controller";
 } else {
     $classController = "Controller\\" . ucfirst($controller) . "Controller";
 }
+// d_die ca veux il s'arrete et var_dump il continuer
 
 //$classController = "Controller\\" . ucfirst($controller) . "Controller";  // ucfirst: met la première lettre d'un string en majuscule
 /* $classController = "Controller\UserController" 
