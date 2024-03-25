@@ -23,7 +23,7 @@
                 <a href="<?= addLink('user','login'); ?>" class="btn color1">login</a>
         <?php } ?>
         <button class="btn color1 ms-2" type="button">
-            <a href="<?= addLink('cart','show') ?>">
+            <a href="<?= addLink('panier','show') ?>">
                 <i class="fa-solid fa-cart-arrow-down"></i>
             </a>
             <span id='nbArticles'><?= $_SESSION['nombre'] ?? ''; ?>

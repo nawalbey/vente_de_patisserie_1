@@ -19,7 +19,7 @@ abstract class Session
     {
         $messages = $_SESSION["messages"] ?? null;
 
-        if (isset($_SESSION["messages"])) {
+        if (isset ($_SESSION["messages"])) {
             unset($_SESSION["messages"]);
         }
         return $messages;
@@ -35,17 +35,22 @@ abstract class Session
         return $_SESSION["user"] ?? false;
     }
 
-    public static function getCart(){
-        return $_SESSION["cart"] ?? false;
+    public static function &getCart()
+    {
+        if (!isset ($_SESSION['cart'])) {
+            $_SESSION['cart'] = array();
+        }
+        return $_SESSION['cart'];
     }
 
-    public static function deleteCart(){
+    public static function deleteCart()
+    {
         unset($_SESSION['cart']);
     }
 
     public static function isConnected()
     {
-        if (isset($_SESSION["user"]))
+        if (isset ($_SESSION["user"]))
             return true;
         return false;
     }
@@ -58,13 +63,15 @@ abstract class Session
     public static function isAdmin(): bool
     {
         $user = self::getUserConnected();
-        if (!empty($user) && ($user->getRole() == ROLE_ADMIN)) {
+        if (!empty ($user) && ($user->getRole() == ROLE_ADMIN)) {
             return true;
         }
         return false;
     }
-    public static function delete($content)
+    public static function delete(array $keys)
     {
-        unset($_SESSION[$content]);
+        foreach ($keys as $key) {
+            unset($_SESSION[$key]);
+        }
     }
 }

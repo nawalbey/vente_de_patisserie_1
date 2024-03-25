@@ -1,10 +1,9 @@
-var urlPanier = window.location.origin + "/vente_de_patisserie_1/cart/addToCart";
+var urlPanier = window.location.origin + "/vente_de_patisserie_1/panier/addToCart";
 document.addEventListener("DOMContentLoaded", function () {
   $(".addToCartBtn").on("click", function (event) {
     event.preventDefault();
     var form = $(this).closest(".add-to-cart-form");
     var formData = form.serialize();
-    console.log(formData);
     $.ajax({
       type: "POST",
       url: urlPanier,
@@ -12,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
       dataType: 'json',
       success: function (response) {
         try {
-          response = JSON.parse(response);
           console.log(typeof response);
           $("#nbArticles").text(response.nombre);
         } catch (error) {

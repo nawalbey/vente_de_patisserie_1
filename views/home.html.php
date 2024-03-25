@@ -26,7 +26,7 @@
                                 <input type="hidden" name="description" value="<?= $gateau->getDescription(); ?>">
                                 <div class="btn-cards">
                                     <input type="submit" class="btn addToCartBtn" id="<?= $gateau->getId(); ?>" value="Ajouter au panier">
-                                    <a href="../model/DetailsController.php?id_gateau=<?= $gateau->getId(); ?>" class='btn'>Voir les details
+                                    <a href="<?= addLink('home', 'detailList', $gateau->getId()); ?>" class='btn'>Voir les details
                                     </a>
                                 </div>
                             </form>

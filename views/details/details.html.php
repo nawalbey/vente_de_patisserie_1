@@ -1,0 +1,1 @@
+<h1><?= $gateau->getNomGateau(); ?></h1>

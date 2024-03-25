@@ -11,12 +11,13 @@ use Form\PanierHandleRequest;
 /**
  * Summary of ProductController
  */
-class CartController extends BaseController
+class PanierController extends BaseController
 {
 
     private $form;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->form = new PanierHandleRequest;
     }
     /**
@@ -30,26 +31,25 @@ class CartController extends BaseController
     }
 
 
-    /**
-     * Summary of show
-     * @return void
-     */
     public function show()
     {
         $messageVide = "";
         $cart = Session::getCart();
-        if(!$cart){
+        // d_die($cart);
+        if (!$cart) {
             $messageVide = 'Votre panier est vide';
-        }else {
+        } else {
             $cart['totals_quantite'] = 0;
-            foreach($cart as &$c){
+            $cart['total_prix'] = 0;
+            foreach ($cart as &$c) {
                 if (is_array($c) && array_key_exists('quantity', $c)) {
                     $cart['totals_quantite'] += $c['quantity'];
+                    $cart['total_prix'] += $c['quantity'] * $c['product']->getPrix();
                 }
             }
             unset($c);
         }
-
+        // d_die($cart);
         $this->render("panier/panier.html.php", [
             "h1" => "Fiche cart",
             "gateaux" => $cart,
@@ -69,7 +69,18 @@ class CartController extends BaseController
 
     public function delete($id)
     {
-
+        $cart = &Session::getCart();
+        // d_die($cart);   
+        foreach ($cart as $key => $c) {
+            $produitId = $c['product']->getId(); 
+            if ($produitId == $id) {
+                unset($cart[$key]);
+                $cart = array_values($cart);
+                $_SESSION['nombre'] -= $c['quantity'] ;
+                break;
+            }
+        }
+        $this->redirectToRoute(['panier','show']);
     }
 
 }

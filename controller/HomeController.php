@@ -25,4 +25,14 @@ class HomeController extends BaseController
             "gateaux" => $gateaux
         ]);
     }
+    
+    public function detailList($id)
+    {
+        $gateaux = $this->gateauxRepository->findById('gateaux',$id);
+        // d_die($gateaux);
+        $this->render('details/details.html.php', [
+            'h1' => 'details du gateau',
+            'gateau' => $gateaux,
+        ]);
+    }
 }
