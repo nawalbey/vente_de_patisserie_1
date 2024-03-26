@@ -22,7 +22,7 @@ class CartManager
         $pr = $this->productRepository;
         $product = $pr->findById('gateaux', $id);
 
-        if (!isset($_SESSION["cart"])){
+        if (!isset ($_SESSION["cart"])) {
             $_SESSION["cart"] = [];
         }
 
@@ -49,5 +49,52 @@ class CartManager
         }
         $_SESSION["nombre"] = $nb;
         return $nb;
+    }
+
+    public function changeQuantity()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset ($_POST['quantityChange'])) {
+
+            // Extraction des données POST
+            extract($_POST);
+            // d_die($_POST);
+            // Récupération du panier depuis la session
+            $cartProducts = &Session::getCart();
+            // Récupération du nombre total d'articles dans le panier depuis la session
+            $totalQuantity = isset ($_SESSION["nombre"]) ? $_SESSION["nombre"] : 0;
+
+            // Vérification de la présence de la clé 'updateQuantite' dans les données POST
+            $updateQuantite = isset ($updateQuantite) ? intval($updateQuantite) : 0;
+
+            // Calcul du nouveau prix en fonction de la quantité changée
+            $newPrice = $quantityChange * $updateQuantite;
+
+            $totalProduct = 0;
+            foreach ($cartProducts as &$cartProduct) {
+                if ($cartProduct['product']->getId() == $checkId) {
+                    if ($status == "increment") {
+                        $totalQuantity++;
+                        $cartProduct['quantity']++;
+                    } else {
+                        if ($updateQuantite > 0) {
+                            $totalQuantity--;
+                            $cartProduct['quantity']--;
+                        }
+                    }
+                }
+                $totalProduct += $cartProduct['quantity'];
+            }
+            $_SESSION['cartProducts'] = $cartProducts;
+
+            $_SESSION['cartProducts']['totalProduct'] = $totalProduct;
+            // Mise à jour de la session avec la nouvelle quantité totale
+            $_SESSION["nombre"] = $totalQuantity;
+
+            // Construction de la réponse JSON
+            $response = ['success' => true, 'message' => 'Mise à jour de la quantité avec succès', 'totalQuantity' => $totalQuantity, 'totalPrice' => $newPrice];
+
+            // Envoi de la réponse JSON
+            echo json_encode($response);
+        }
     }
 }

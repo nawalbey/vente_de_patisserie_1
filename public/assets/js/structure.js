@@ -1,4 +1,7 @@
-var urlPanier = window.location.origin + "/vente_de_patisserie_1/panier/addToCart";
+var urlPanier =
+  window.location.origin + "/vente_de_patisserie_1/panier/addToCart";
+var urlPanierQuantite =
+  window.location.origin + "/vente_de_patisserie_1/panier/quantity";
 document.addEventListener("DOMContentLoaded", function () {
   $(".addToCartBtn").on("click", function (event) {
     event.preventDefault();
@@ -8,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
       type: "POST",
       url: urlPanier,
       data: formData + "&ajouterPanier=panier",
-      dataType: 'json',
+      dataType: "json",
       success: function (response) {
         try {
           console.log(typeof response);
@@ -82,7 +85,7 @@ function save_to_db(
   var priceElement = $("#cart-price-" + cart_id);
   // alert(new_quantity);
   $.ajax({
-    url: "../model/achete.php",
+    url: urlPanierQuantite,
     data:
       "checkId=" +
       cart_id +
@@ -102,6 +105,7 @@ function save_to_db(
     dataType: "json",
     success: function (response) {
       // alert(response.totalQuantity);
+      $("#nbArticles").text(response.totalQuantity);
       $(inputQuantityElement).html(
         '<p class="card-text1"><i class="fa-solid fa-cookie-bite">' +
           new_quantity +
@@ -133,3 +137,31 @@ function save_to_db(
     },
   });
 }
+
+function setFooterBackground(className) {
+  $(document).ready(function () {
+    // Obtenez l'élément div principal
+    var mainDiv = $(className); // Utilisez le nom de la classe passé en paramètre
+
+    // Obtenez l'URL de l'image d'arrière-plan de la div principale
+    var bgImage = mainDiv.css("background-image");
+
+    // Obtenez l'élément footer
+    var footer = $("footer"); // Remplacez 'footer' par la classe ou l'ID de votre footer
+
+    if (bgImage == "none") {
+      bgImage = mainDiv.css("background-color");
+      footer.css("background-color", bgImage);
+    } else {
+      // Définissez l'image d'arrière-plan du footer pour qu'elle soit la même que celle de la div principale
+      footer.css("background-image", bgImage);
+    }
+  });
+}
+
+setFooterBackground(".class1");
+setFooterBackground(".class2");
+setFooterBackground(".body1");
+setFooterBackground(".class4");
+setFooterBackground(".class5");
+setFooterBackground(".class6");

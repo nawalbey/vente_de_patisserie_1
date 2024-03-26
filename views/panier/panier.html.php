@@ -37,7 +37,7 @@
                                             +</button>
                                     </div>
                                     <div class="cart-info price" id="cart-price-<?= $gateau['product']->getId(); ?>">
-                                        <?= ($gateau['product']->getPrix() * $gateau["quantity"]) . " €"; ?>
+                                        <?= ($gateau['product']->getPrix() * $gateau['quantity']) . " €"; ?>
                                     </div>
                                     <div
                                         class="button3">
@@ -86,4 +86,5 @@
                 <a href="<?= addLink('commande', 'confirm') ?>" class="btn" name="commande">Commander</a>
             </div>
     <?php } ?>
+    
 

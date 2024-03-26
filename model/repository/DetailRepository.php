@@ -9,7 +9,7 @@ use Model\Entity\Commande;
 
 class DetailRepository extends BaseRepository
 {
-    public function insertDetail(Commande $commande, Gateaux $gateau, $quantite)
+    public function insertDetail(Commande $commande, Gateaux $gateau, $quantite):void
     {
         $detail = new Detail;
         $detail->setCommande($commande)

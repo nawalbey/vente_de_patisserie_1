@@ -10,7 +10,7 @@ $messages = Session::getMessages();
 
     <?php foreach ($messages as $type => $messagesType): ?>
 
-        <div class="alert alert-<?= $type ?>">
+        <div class="alert alert-<?= $type ?> m-0">
 
             <?php foreach ($messagesType as $msg): ?>
 

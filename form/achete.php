@@ -27,9 +27,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['quantityChange'])) {
     extract($_POST);
     
     if($status == "increment") {        
-        createArrayCart($checkId); 
+        $updateQuantite++;
+        $newPrice = $quantityChange * $updateQuantite; 
     } else {        
-        decreaseItem($checkId); 
+        if($updateQuantite != 0){
+            $updateQuantite--;
+            $newPrice = $quantityChange * $updateQuantite;
+        }
     }   
     
     $cartProducts = getDetails();

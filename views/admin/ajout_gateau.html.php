@@ -1,7 +1,3 @@
-<?php require_once('../inc/header.php');
-
-?>
-
 <div class="ajout_admin_gateau">
 
     <form method="post" enctype="multipart/form-data">
@@ -29,4 +25,7 @@
         </div>
     </form>
 </div>
+
+
+
 

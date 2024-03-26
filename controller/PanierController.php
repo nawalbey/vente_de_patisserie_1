@@ -80,7 +80,16 @@ class PanierController extends BaseController
                 break;
             }
         }
+        if(empty($cart)){
+            unset($_SESSION['nombre']);
+        }
         $this->redirectToRoute(['panier','show']);
+    }
+
+    public function quantity(): void
+    {
+        $quantity = new CartManager;
+        $quantity->changeQuantity();
     }
 
 }

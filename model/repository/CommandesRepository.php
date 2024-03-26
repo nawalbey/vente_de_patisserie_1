@@ -26,7 +26,7 @@ class CommandesRepository extends BaseRepository
             // Validez la transaction si tout s'est bien passé
             $this->dbConnection->commit();
 
-           return $idOrder;
+            return $this->findById('commande',$idOrder);
         } catch (\PDOException $e) {
 
             // En cas d'erreur, annulez la transaction
