@@ -55,7 +55,7 @@ h1 {
 
 /* debut de la class1 */
 .class1 {
-  background-image: url(../img/104-1048812_fond-d-cran-chocolat.jpg);
+  background-image: url("../../../uploads/fonds/104-1048812_fond-d-cran-chocolat.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-position: 50% 70%;
@@ -358,7 +358,7 @@ p {
   width: 50%;
   min-height: 100vh;
   margin: auto;
-  background-image: url(../img/Gateau-chocolat-zucchini-tinyjpg-1178px.jpg);
+  background-image: url(../../../uploads/fonds/Gateau-chocolat-zucchini-tinyjpg-1178px.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -481,7 +481,7 @@ footer {
   background-repeat: no-repeat;
   background-size: cover;
   /* background-attachment: fixed; */
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.355);
+  /* box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.355); */
   background-position: 99% 98%;
 }
 
@@ -648,4 +648,74 @@ footer span {
 .cart-status {
   font-size: 20px;
   margin-top: 10px;
+}
+/* fin */
+
+/* class nav-bar (admin_menu) */
+.admin_menu {
+  position: relative;
+  display: inline-block;
+}
+/* #(id) */
+.admin_menu #ajout_list_admin_gateau {
+  display: none;
+  position: absolute;
+  background: linear-gradient(
+    -45deg,
+    #562528,
+    #562528,
+    #562528
+  ); /* Dégradé de couleurs */
+  border-radius: 8px;
+  padding: 10px;
+  z-index: 1;
+  font-family: "Arial", sans-serif; /* Police de caractères */
+  animation: glitter 1s infinite; /* Animation glitter */
+  left: 55%; /* Centrage horizontal */
+  top: calc(100% + 10px); /* Place juste en dessous du menu */
+  transform: translateX(-50%); /* Ajustement du centrage */
+}
+
+.admin_menu:hover #ajout_list_admin_gateau {
+  display: block;
+}
+
+.admin_menu #ajout_list_admin_gateau a {
+  display: block;
+  color: #f6f6f6; /* Couleur violette */
+  text-decoration: none;
+  padding: 8px 12px;
+  font-size: 16px; /* Taille du texte */
+}
+
+.admin_menu #ajout_list_admin_gateau a:hover {
+  background-color: #562528; /* Couleur de fond rose clair au survol */
+  color: #000000; /* Couleur violette plus foncée au survol */
+}
+
+@keyframes glitter {
+  0% {
+    filter: brightness(100%);
+  }
+  50% {
+    filter: brightness(150%);
+  }
+  100% {
+    filter: brightness(100%);
+  }
+}
+/* fin */
+
+.list_gateau {
+  background-image: url(../../../uploads/gateaux/DZQ.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 50% 70%;
+  width: 100%;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.355);
+}
+.table1 {
+  background-color: transparent;
+  color: white;
+  text-transform: uppercase;
 }

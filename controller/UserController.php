@@ -47,7 +47,7 @@ class UserController extends BaseController
 
         $errors = $this->form->getEerrorsForm();
 
-        return $this->render("user/form.html.php", [
+        return $this->render("user/inscription.html.php", [
             "h1" => "Ajouter un nouvel utilisateur",
             "user" => $user,
             "errors" => $errors

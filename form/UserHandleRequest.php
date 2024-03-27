@@ -17,41 +17,42 @@ class UserHandleRequest extends BaseHandleRequest
 
     public function handleInsertForm(User $user)
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inscription'])) {
 
             extract($_POST);
+            // d_die($_POST);
             $errors = [];
 
-            if (!empty($lastname)) {
-                if (strlen($lastname) < 2) {
+            if (!empty($nom)) {
+                if (strlen($nom) < 2) {
                     $errors[] = "Le nom doit avoir au moins 2 caractères";
                 }
-                if (strlen($lastname) > 30) {
+                if (strlen($nom) > 30) {
                     $errors[] = "Le nom ne peut avoir plus de 30 caractères";
                 }
             }
-            if (!empty($firstname)) {
-                if (strlen($firstname) < 2) {
+            if (!empty($prenom)) {
+                if (strlen($prenom) < 2) {
                     $errors[] = "Le prénom doit avoir au moins 2 caractères";
                 }
-                if (strlen($firstname) > 30) {
+                if (strlen($prenom) > 30) {
                     $errors[] = "Le prénom ne peut avoir plus de 30 caractères";
                 }
             }
-            if (empty($password)) {
+            if (empty($mot_de_passe)) {
                 $errors[] = "Le mot de passe ne peut pas être vide";
             }
 
 
             if (empty($errors)) {
-                $password = password_hash($password, PASSWORD_DEFAULT);
-                $user->setPrenom($firstname ?? null);
-                $user->setNom($lastname ?? null);
+                $password = password_hash($mot_de_passe, PASSWORD_DEFAULT);
+                $user->setPrenom($prenom ?? null);
+                $user->setNom($nom ?? null);
                 $user->setMotDePasse($password);
                 $user->setEmail($email);
-                $user->setPhone($phone);
-                $user->setDateNaissance($birthday ?? null);
-                $user->setAdresse($birthday ?? null);
+                $user->setPhone($numero_telephone);
+                $user->setDateNaissance($date_de_naissance ?? null);
+                $user->setAdresse($adresse ?? null);
                 return $this;
             }
             $this->setEerrorsForm($errors);

@@ -30,22 +30,19 @@ class GateauxHandleRequest extends BaseHandleRequest
                 $errors[] = "Veuillez sélectionner une image à télécharger pour continuer.";
             }
 
-            if (!is_numeric($prix)) {
+            if (!is_numeric($p_gateau)) {
                 $errors[] = "Le prix doit avoir une valeur numérique";
             }
-            if (empty($prix)) {
+            if (empty($p_prix)) {
                 $errors[] = "Le prix ne peut pas être vide";
-            }
-            if (!is_numeric($stock)) {
-                $errors[] = "Le stock doit avoir une valeur numérique";
             }
 
             $this->imageTraitement->handelPhoto($product);
 
             if (empty($errors)) {
-                $product->setNomGateau($nom_gateau);
-                $product->setDescription($description ?? null);
-                $product->setPrix($prix);
+                $product->setNomGateau($n_gateau);
+                $product->setDescription($d_gateau ?? null);
+                $product->setPrix($p_gateau);
                 return $this;
             }
             $this->setEerrorsForm($errors);

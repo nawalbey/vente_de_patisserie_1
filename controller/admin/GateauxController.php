@@ -12,13 +12,13 @@ use Model\Repository\GateauxRepository;
 
 class GateauxController extends BaseController
 {
-    private GateauxRepository $GateauxRepository;
+    private GateauxRepository $gateauxRepository;
     private GateauxHandleRequest $form;
     private Gateaux $product;
 
     public function __construct()
     {
-        $this->GateauxRepository = new GateauxRepository;
+        $this->gateauxRepository = new GateauxRepository;
         $this->form = new GateauxHandleRequest;
         $this->product = new Gateaux;
     }
@@ -26,9 +26,9 @@ class GateauxController extends BaseController
     public function list()
     {
 
-        $list_Gateaux = $this->GateauxRepository->findAll($this->product);
+        $list_Gateaux = $this->gateauxRepository->findAll($this->product);
 
-        $this->render("admin/product/index.html.php", [
+        $this->render("admin/gateaux/list_gateau.html.php", [
             "h1" => "Liste des produits",
             "products" => $list_Gateaux
         ]);
@@ -44,14 +44,14 @@ class GateauxController extends BaseController
 
             ImageHandler::handelPhoto($product);
 
-            $this->GateauxRepository->insertProduct($product);
+            $this->gateauxRepository->insertProduct($product);
 
             return redirection(addLink("home"));
         }
 
         $errors = $this->form->getEerrorsForm();
 
-        return $this->render("admin/ajout_gateau.html.php", [
+        return $this->render("admin/gateaux/ajout_gateau.html.php", [
             "h1" => "Ajouter un nouveau produit",
             "product" => $product,
             "errors" => $errors,
@@ -70,7 +70,7 @@ class GateauxController extends BaseController
             $this->form->handleEditForm($product);
 
             if ($this->form->isSubmitted() && $this->form->isValid()) {
-                $this->GateauxRepository->updateProduct($product);
+                $this->gateauxRepository->updateProduct($product);
                 return redirection(addLink("home"));
             }
 

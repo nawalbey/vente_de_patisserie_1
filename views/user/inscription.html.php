@@ -1,8 +1,11 @@
-<?php include_once "../inc/header.php" ?>
-
 <div class="class1">
+    <?php if (isset($errors)) { foreach($errors as $e){?>
+            <div>
+                <?= $e ?>
+        <?php }} ?>
+    </div>
     <div class="container container-height">
-        <form action="../model/db_inscription.php" method="post">
+        <form method="post">
             <h1>Inscription</h1>
             <div>
                 <div class="form-group">
@@ -41,6 +44,5 @@
             </div>
         </form>
     </div>
-    <?php include_once "../inc/footer2.php" ?>
 </div>
 

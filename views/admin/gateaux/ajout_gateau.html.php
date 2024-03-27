@@ -1,5 +1,4 @@
 <div class="ajout_admin_gateau">
-
     <form method="post" enctype="multipart/form-data">
         <h1>Ajoutez votre gateau ici</h1>
         <div class="admin_form">
@@ -17,7 +16,7 @@
             </div>
             <div class="admin_flex">
                 <label for="image_gateau">Photo du gateau</label>
-                <input type="file" name="i_gateau" id="image_gateau">
+                <input type="file" name="photo" id="image_gateau">
             </div>
         </div>
         <div class="admin_flex_envoyer">
@@ -25,7 +24,3 @@
         </div>
     </form>
 </div>
-
-
-
-
