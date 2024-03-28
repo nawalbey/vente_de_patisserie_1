@@ -38,11 +38,9 @@ class UserController extends BaseController
     {
         $user = $this->user;
         $this->form->handleInsertForm($user);
-
         if ($this->form->isSubmitted() && $this->form->isValid()) {
-
             $this->userRepository->insertUser($user);
-            return redirection(addLink("home"));
+            return redirection(addLink("user","login"));
         }
 
         $errors = $this->form->getEerrorsForm();

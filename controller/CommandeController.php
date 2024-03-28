@@ -4,7 +4,6 @@
  */
 namespace Controller;
 
-use Model\Entity\Commande;
 use Model\Repository\DetailRepository;
 use Model\Repository\GateauxRepository;
 use Model\Repository\CommandesRepository;

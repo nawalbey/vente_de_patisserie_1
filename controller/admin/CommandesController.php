@@ -3,8 +3,6 @@
  * Summary of namespace Controller
  */
 namespace Controller\Admin;
-
-use Service\CartManager;
 use Controller\BaseController;
 
 /**

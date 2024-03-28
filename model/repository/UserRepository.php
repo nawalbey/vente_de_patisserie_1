@@ -27,14 +27,14 @@ class UserRepository extends BaseRepository
         $request->bindValue(":email", $user->getEmail());
         $request->bindValue(":mot_de_passe", $user->getMotdepasse());
         $request->bindValue(":adresse", $user->getAdresse());
-        $request->bindValue(":numero_de_telephone", $user->getPhone());
-        $request->bindValue(":date_de_naissance", $user->getDateNaissance());
+        $request->bindValue(":numero_telephone", $user->getPhone());
+        $request->bindValue(":date_de_naissance", date('Y-m-d', strtotime($user->getDateNaissance())));
         $request->bindValue(":role", $user->getRole());
 
         $request = $request->execute();
         if ($request) {
             if ($request == 1) {
-                Session::addMessage("success", "Le nouvel utilisateur a bien été enregistré");
+                Session::addMessage("success", "inscription reussie");
                 return true;
             }
             Session::addMessage("danger", "Erreur : l'utilisateur n'a pas été enregisté");

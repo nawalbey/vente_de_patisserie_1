@@ -20,7 +20,6 @@ class UserHandleRequest extends BaseHandleRequest
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inscription'])) {
 
             extract($_POST);
-            // d_die($_POST);
             $errors = [];
 
             if (!empty($nom)) {
@@ -46,13 +45,14 @@ class UserHandleRequest extends BaseHandleRequest
 
             if (empty($errors)) {
                 $password = password_hash($mot_de_passe, PASSWORD_DEFAULT);
-                $user->setPrenom($prenom ?? null);
-                $user->setNom($nom ?? null);
+                $user->setPrenom($prenom);
+                $user->setNom($nom);
                 $user->setMotDePasse($password);
                 $user->setEmail($email);
                 $user->setPhone($numero_telephone);
-                $user->setDateNaissance($date_de_naissance ?? null);
-                $user->setAdresse($adresse ?? null);
+                $user->setAdresse($adresse);
+                $user->setDateNaissance($date_de_naissance);
+                $user->setRole(null);
                 return $this;
             }
             $this->setEerrorsForm($errors);

@@ -1,7 +1,18 @@
 <?php
+// Initialisation de la variable $mode :
+
+// La ligne $mode = $mode ?? "insertion"; initialise la variable $mode à la valeur de $mode s'il est défini, sinon elle lui attribue la valeur par défaut "insertion".
+// Cela signifie que si la variable $mode est déjà définie, elle conserve sa valeur actuelle. Sinon, elle prend la valeur "insertion".
 $mode = $mode ?? "insertion";
+// Inclusion du fichier de vue errors_form.html.php :
+// La ligne require "views/errors_form.html.php"; inclut le fichier de vue errors_form.html.php.
+// Ce fichier est probablement destiné à afficher des messages d'erreur ou des informations de formulaire, comme son nom l'indique.
 require "views/errors_form.html.php";
+// Utilisation du $mode dans le fichier de vue inclus :
+// Après l'inclusion du fichier errors_form.html.php, le script peut utiliser la variable $mode à l'intérieur de ce fichier pour déterminer le mode d'affichage ou de traitement des erreurs, s'il y a lieu.
 ?>
+<!--En résumé, ce code initialise la variable $mode à "insertion" par défaut, puis inclut un fichier de vue qui probablement affiche des messages d'erreur ou des informations de formulaire. Le fichier de vue inclus peut utiliser la variable $mode selon les besoins de son fonctionnement. -->
+
 
 <form method="post">
     <div class="form-group mt-3">
@@ -49,3 +60,4 @@ require "views/errors_form.html.php";
         <a href="<?= addLink("user") ?>" class="btn btn-danger">Annuler</a>
     </div>
 </form>
+

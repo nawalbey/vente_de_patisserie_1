@@ -35,7 +35,6 @@ class PanierController extends BaseController
     {
         $messageVide = "";
         $cart = Session::getCart();
-        // d_die($cart);
         if (!$cart) {
             $messageVide = 'Votre panier est vide';
         } else {
@@ -49,7 +48,6 @@ class PanierController extends BaseController
             }
             unset($c);
         }
-        // d_die($cart);
         $this->render("panier/panier.html.php", [
             "h1" => "Fiche cart",
             "gateaux" => $cart,
@@ -70,7 +68,6 @@ class PanierController extends BaseController
     public function delete($id)
     {
         $cart = &Session::getCart();
-        // d_die($cart);   
         foreach ($cart as $key => $c) {
             $produitId = $c['product']->getId(); 
             if ($produitId == $id) {

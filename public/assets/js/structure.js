@@ -138,30 +138,30 @@ function save_to_db(
   });
 }
 
-function setFooterBackground(className) {
-  $(document).ready(function () {
-    // Obtenez l'élément div principal
-    var mainDiv = $(className); // Utilisez le nom de la classe passé en paramètre
+// function setFooterBackground(className) {
+//   $(document).ready(function () {
+//     // Obtenez l'élément div principal
+//     var mainDiv = $(className); // Utilisez le nom de la classe passé en paramètre
 
-    // Obtenez l'URL de l'image d'arrière-plan de la div principale
-    var bgImage = mainDiv.css("background-image");
+//     // Obtenez l'URL de l'image d'arrière-plan de la div principale
+//     var bgImage = mainDiv.css("background-image");
 
-    // Obtenez l'élément footer
-    var footer = $("footer"); // Remplacez 'footer' par la classe ou l'ID de votre footer
+//     // Obtenez l'élément footer
+//     var footer = $("footer"); // Remplacez 'footer' par la classe ou l'ID de votre footer
 
-    if (bgImage == "none") {
-      bgImage = mainDiv.css("background-color");
-      footer.css("background-color", bgImage);
-    } else {
-      // Définissez l'image d'arrière-plan du footer pour qu'elle soit la même que celle de la div principale
-      footer.css("background-image", bgImage);
-    }
-  });
-}
+//     if (bgImage == "none") {
+//       bgImage = mainDiv.css("background-color");
+//       footer.css("background-color", bgImage);
+//     } else {
+//       // Définissez l'image d'arrière-plan du footer pour qu'elle soit la même que celle de la div principale
+//       footer.css("background-image", bgImage);
+//     }
+//   });
+// }
 
-setFooterBackground(".class1");
-setFooterBackground(".class2");
-setFooterBackground(".body1");
-setFooterBackground(".class4");
-setFooterBackground(".class5");
-setFooterBackground(".class6");
+// setFooterBackground(".class1");
+// setFooterBackground(".class2");
+// setFooterBackground(".body1");
+// setFooterBackground(".class4");
+// setFooterBackground(".class5");
+// setFooterBackground(".class6");

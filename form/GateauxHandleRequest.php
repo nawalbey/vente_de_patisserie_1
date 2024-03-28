@@ -11,12 +11,10 @@ use Model\Repository\GateauxRepository;
 class GateauxHandleRequest extends BaseHandleRequest
 {
     private $productRepository;
-    private $imageTraitement;
 
     public function __construct()
     {
         $this->productRepository = new GateauxRepository;
-        $this->imageTraitement = new ImageHandler;
     }
 
     public function handleInsertForm(Gateaux $product)
@@ -33,12 +31,11 @@ class GateauxHandleRequest extends BaseHandleRequest
             if (!is_numeric($p_gateau)) {
                 $errors[] = "Le prix doit avoir une valeur numérique";
             }
-            if (empty($p_prix)) {
+            if (empty($p_gateau)) {
                 $errors[] = "Le prix ne peut pas être vide";
             }
 
-            $this->imageTraitement->handelPhoto($product);
-
+            
             if (empty($errors)) {
                 $product->setNomGateau($n_gateau);
                 $product->setDescription($d_gateau ?? null);

@@ -73,7 +73,18 @@ class User extends BaseEntity
 
         return $this;
     }
+    
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
 
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
     public function getPhone()
     {
         return $this->numero_telephone;
@@ -98,15 +109,4 @@ class User extends BaseEntity
         return $this;
     }
 
-    public function getAdresse()
-    {
-        return $this->adresse;
-    }
-
-    public function setAdresse($adresse)
-    {
-        $this->$adresse = $adresse;
-
-        return $this;
-    }
 }

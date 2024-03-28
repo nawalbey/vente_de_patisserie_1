@@ -1,5 +1,5 @@
 <div class="list_gateau">
-    <div style="width: 1100px; margin: auto;">
+    <div style="width: 1500px; margin: auto;">
         <table class="table1">
             <thead>
                 <tr>

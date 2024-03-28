@@ -7,6 +7,11 @@ use Service\Session as Sess;
 
 abstract class BaseController
 {
+    // Méthode render($fichier, array $parametres = []) :
+
+    // Cette méthode est utilisée pour inclure un fichier de vue spécifié et passer des paramètres à ce fichier.
+// Elle extrait les paramètres avec extract($parametres) pour que les clés du tableau deviennent des variables dans le fichier inclus.
+// Elle inclut ensuite le fichier d'en-tête (header.html.php), le fichier de vue spécifié, puis le fichier de pied de page (footer.html.php).
     public function render($fichier, array $parametres = [])
     {
         extract($parametres);
@@ -16,6 +21,15 @@ abstract class BaseController
         include "public/footer.html.php";
     }
 
+    // Méthodes utilitaires :
+
+    // getUser(): Récupère l'utilisateur connecté à partir de la session. Si aucun utilisateur n'est connecté, redirige vers une page d'erreur 403.
+// isUserConnected(): Vérifie si un utilisateur est connecté en consultant la session.
+// getAdmin(): Récupère l'utilisateur connecté en tant qu'administrateur. Si l'utilisateur n'est pas un administrateur, redirige vers une page d'erreur 403.
+// setMessage($type, $message): Ajoute un message à la session. Ces messages peuvent être de différents types, comme "success", "danger", etc.
+// disconnection(): Déconnecte l'utilisateur en effaçant les données de session.
+// remove($value): Supprime une valeur spécifique de la session.
+// redirectToRoute(array $linkInfo): Redirige vers une route spécifique en fonction des informations fournies dans le tableau $linkInfo.
     public function getUser()
     {
         $user = Sess::getUserConnected();
@@ -43,6 +57,7 @@ abstract class BaseController
         return $user;
     }
 
+    
     /**
      * Summary of setMessage
      *
