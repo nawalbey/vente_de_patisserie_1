@@ -19,7 +19,7 @@ abstract class Session
     {
         $messages = $_SESSION["messages"] ?? null;
 
-        if (isset ($_SESSION["messages"])) {
+        if (isset($_SESSION["messages"])) {
             unset($_SESSION["messages"]);
         }
         return $messages;
@@ -37,7 +37,7 @@ abstract class Session
 
     public static function &getCart()
     {
-        if (!isset ($_SESSION['cart'])) {
+        if (!isset($_SESSION['cart'])) {
             $_SESSION['cart'] = array();
         }
         return $_SESSION['cart'];
@@ -50,7 +50,7 @@ abstract class Session
 
     public static function isConnected()
     {
-        if (isset ($_SESSION["user"]))
+        if (isset($_SESSION["user"]))
             return true;
         return false;
     }
@@ -63,7 +63,7 @@ abstract class Session
     public static function isAdmin(): bool
     {
         $user = self::getUserConnected();
-        if (!empty ($user) && ($user->getRole() == ROLE_ADMIN)) {
+        if (!empty($user) && ($user->getRole() == ROLE_ADMIN)) {
             return true;
         }
         return false;
@@ -75,3 +75,5 @@ abstract class Session
         }
     }
 }
+// Ce code PHP représente une classe Session située dans le namespace Service. Cette classe fournit des méthodes statiques pour gérer les sessions PHP dans une application web. Voici une explication ligne par ligne :-->
+// namespace Service;: Cette déclaration indique que la classe Session est définie dans le namespace Service.

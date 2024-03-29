@@ -1,3 +1,4 @@
+<!-- class ajout admin gateau-->
 <div class="ajout_admin_gateau">
     <form method="post" enctype="multipart/form-data">
         <h1>Ajoutez votre gateau ici</h1>
