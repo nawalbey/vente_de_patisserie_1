@@ -53,7 +53,7 @@ class PanierHandleRequest extends BaseHandleRequest
                 return $this;
             }
 
-            $this->setEerrorsForm($errors);
+            $this->setErrorsForm($errors);
             return $this;
         }
     }

@@ -55,7 +55,7 @@ class UserHandleRequest extends BaseHandleRequest
                 $user->setRole(null);
                 return $this;
             }
-            $this->setEerrorsForm($errors);
+            $this->setErrorsForm($errors);
             return $this;
         }
     }
@@ -86,7 +86,7 @@ class UserHandleRequest extends BaseHandleRequest
                 return $this;
             }
 
-            $this->setEerrorsForm($errors);
+            $this->setErrorsForm($errors);
             return $this;
         }
     }
