@@ -3,6 +3,10 @@
  * Summary of namespace Controller
  */
 namespace Controller;
+// namespace et Use Statements:
+
+// Le code commence par déclarer un namespace Controller, ce qui signifie que toutes les classes et interfaces définies dans ce fichier appartiennent à ce namespace.
+// Ensuite, il y a quelques instructions use qui importent les classes DetailRepository, GateauxRepository, et CommandesRepository depuis le namespace Model\Repository. Cela permet d'utiliser ces classes dans ce fichier sans avoir à spécifier le chemin complet à chaque fois.
 
 use Model\Repository\DetailRepository;
 use Model\Repository\GateauxRepository;
@@ -11,6 +15,14 @@ use Model\Repository\CommandesRepository;
 /**
  * Summary of OrderController
  */
+
+// Classe CommandeController:
+// La classe CommandeController étend la classe BaseController, ce qui suggère qu'elle hérite de certaines fonctionnalités ou méthodes de cette classe parente.
+// Elle a trois propriétés privées :
+// $gateauxRepository de type GateauxRepository.
+// $commandesRepository de type CommandesRepository.
+// $detailRepository de type DetailRepository.
+// Le constructeur de la classe initialise ces trois propriétés en créant de nouvelles instances des classes correspondantes.
 class CommandeController extends BaseController
 {
     private GateauxRepository $gateauxRepository;
@@ -24,6 +36,13 @@ class CommandeController extends BaseController
         $this->detailRepository = new DetailRepository;
     }
 
+    // Méthode confirm():
+
+// Cette méthode vérifie d'abord si un utilisateur est connecté. Si ce n'est pas le cas, elle redirige l'utilisateur vers la page de connexion.
+// Ensuite, elle vérifie si le panier de l'utilisateur ($_SESSION["cart"]) est vide. Si c'est le cas, elle affiche un message d'information et redirige l'utilisateur vers la page du panier.
+// Ensuite, elle récupère les articles du panier ($cart) et insère une nouvelle commande dans la base de données via $this->commandesRepository->insertOrder().
+// Elle boucle ensuite sur chaque élément du panier, récupère les détails de chaque produit depuis la base de données via $this->gateauxRepository->findById('gateaux', $c['product']->getId()), puis insère ces détails dans la table de détails de la commande via $this->detailRepository->insertDetail($orderId, $gateau, $c['quantity']).
+// Enfin, elle supprime le panier de la session et affiche un message de succès avant de rediriger l'utilisateur vers la page d'accueil.
     public function confirm()
     {
         if (!$this->isUserConnected()) {
@@ -52,6 +71,9 @@ class CommandeController extends BaseController
 
     }
 
+// Autres méthodes:
+// Les méthodes edit, delete, et show semblent être des méthodes prévues pour gérer les opérations d'édition, de suppression et d'affichage des commandes, mais elles sont actuellement vides.
+// En résumé, ce code représente un contrôleur PHP qui gère la confirmation des commandes des utilisateurs, enregistre les commandes dans la base de données et gère les opérations relatives à la gestion des commandes, comme l'édition, la suppression et l'affichage.
     public function edit($id)
     {
 
