@@ -17,12 +17,12 @@ require "views/errors_form.html.php";
 <form method="post">
     <div class="form-group mt-3">
         <label for="firstname">Prénom</label>
-        <input type="text" name="firstname" id="firstname" class="form-control" value="<?= $user->getFirstname() ?>" <?= $mode == "suppression" ? "disabled" : "" ?>>
+        <input type="text" name="firstname" id="firstname" class="form-control" value="<?= $user->getFirstname() ?>" <?= $mode == "suppression" ? "disabled" : "" ?> required>
     </div>
 
     <div class="form-group mt-3">
         <label for="lastname">Nom</label>
-        <input type="text" name="lastname" id="lastname" class="form-control" value="<?= $user->getLastname() ?>" <?= $mode == "suppression" ? "disabled" : "" ?>>
+        <input type="text" name="lastname" id="lastname" class="form-control" value="<?= $user->getLastname() ?>" <?= $mode == "suppression" ? "disabled" : "" ?> required>
     </div>
 
     <div class="form-group mt-3">
@@ -51,7 +51,7 @@ require "views/errors_form.html.php";
         <label for="phone">Numéro de téléphone
             <sup>*</sup>
         </label>
-        <input type="text" name="phone" id="phone" class="form-control" value="<?= $user->getPhone() ?>" <?= $mode == "suppression" ? "disabled" : "" ?>r equired>
+        <input type="text" name="phone" id="phone" class="form-control" value="<?= $user->getPhone() ?>" <?= $mode == "suppression" ? "disabled" : "" ?>required>
     </div>
     <div class="d-flex justify-content-between mt-3">
         <button type="submit" class="btn btn-primary" name="register">
