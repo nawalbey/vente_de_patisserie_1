@@ -1,4 +1,5 @@
 <div class="body1">
+    <!--<div class="body1">: Début d'une division avec une classe CSS "body1". cote client-->
     <h1><?= $h1 ?></h1>
     <div class="class3">
         <?php

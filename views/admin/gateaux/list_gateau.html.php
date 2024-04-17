@@ -1,4 +1,4 @@
-<!--class list_gateaux-->
+<!--class list_gateaux (cote admin)-->
 <div
     class="list_gateau">
     <!-- css-->
