@@ -21,8 +21,8 @@ class CartManager
         $quantity = $_GET["qte"] ?? 1;
         $pr = $this->productRepository;
         $product = $pr->findById('gateaux', $id);
-
-        if (!isset ($_SESSION["cart"])) {
+        
+        if (!isset($_SESSION["cart"])) {
             $_SESSION["cart"] = [];
         }
 
@@ -48,7 +48,7 @@ class CartManager
             $nb += $value["quantity"];
         }
         $_SESSION["nombre"] = $nb;
-        return $nb;
+        echo json_encode(['nombre' => $nb]);
     }
 
     public function changeQuantity()
@@ -65,10 +65,7 @@ class CartManager
 
             // Vérification de la présence de la clé 'updateQuantite' dans les données POST
             $updateQuantite = isset ($updateQuantite) ? intval($updateQuantite) : 0;
-
-            // Calcul du nouveau prix en fonction de la quantité changée
-            $newPrice = $quantityChange * $updateQuantite;
-
+            
             $totalProduct = 0;
             foreach ($cartProducts as &$cartProduct) {
                 if ($cartProduct['product']->getId() == $checkId) {
@@ -82,7 +79,7 @@ class CartManager
                         }
                     }
                 }
-                $totalProduct += $cartProduct['quantity'];
+                $totalProduct += $cartProduct['quantity'] * $cartProduct['product']->getPrix();
             }
             $_SESSION['cartProducts'] = $cartProducts;
 
@@ -91,7 +88,7 @@ class CartManager
             $_SESSION["nombre"] = $totalQuantity;
 
             // Construction de la réponse JSON
-            $response = ['success' => true, 'message' => 'Mise à jour de la quantité avec succès', 'totalQuantity' => $totalQuantity, 'totalPrice' => $newPrice];
+            $response = ['success' => true, 'message' => 'Mise à jour de la quantité avec succès', 'totalQuantity' => $totalQuantity, 'totalPrice' => $totalProduct];
 
             // Envoi de la réponse JSON
             echo json_encode($response);

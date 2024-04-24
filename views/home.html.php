@@ -30,7 +30,7 @@
                                     <a href="<?= addLink('home', 'detailList', $gateau->getId()); ?>" class='btn'>Voir les details
                                     </a>
                                 </div>
-                            </form>
+                            </form> 
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,9 @@
 <?php
+
 /**
  * Summary of namespace Controller
  */
+
 namespace Controller;
 
 use Service\Session;
@@ -53,7 +55,6 @@ class PanierController extends BaseController
             "gateaux" => $cart,
             'messageVide' => $messageVide,
         ]);
-
     }
     /**
      * Summary of edit
@@ -62,25 +63,24 @@ class PanierController extends BaseController
      */
     public function edit($id)
     {
-
     }
 
     public function delete($id)
     {
         $cart = &Session::getCart();
         foreach ($cart as $key => $c) {
-            $produitId = $c['product']->getId(); 
+            $produitId = $c['product']->getId();
             if ($produitId == $id) {
                 unset($cart[$key]);
                 $cart = array_values($cart);
-                $_SESSION['nombre'] -= $c['quantity'] ;
+                $_SESSION['nombre'] -= $c['quantity'];
                 break;
             }
         }
-        if(empty($cart)){
+        if (empty($cart)) {
             unset($_SESSION['nombre']);
         }
-        $this->redirectToRoute(['panier','show']);
+        $this->redirectToRoute(['panier', 'show']);
     }
 
     public function quantity(): void
@@ -88,5 +88,4 @@ class PanierController extends BaseController
         $quantity = new CartManager;
         $quantity->changeQuantity();
     }
-
 }

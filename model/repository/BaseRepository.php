@@ -39,7 +39,6 @@ class BaseRepository
 
             if ($request->rowCount() == 1) {
                 $request->setFetchMode(\PDO::FETCH_CLASS, $class);
-
                 return $request->fetch();
             } else if ($request->rowCount() > 1) {
                 // ucfirst : majuscule au début de la chaine de caractères

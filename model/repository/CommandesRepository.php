@@ -25,10 +25,8 @@ class CommandesRepository extends BaseRepository
 
             // Validez la transaction si tout s'est bien passé
             $this->dbConnection->commit();
-
-            return $this->findById('commande',$idOrder);
+            return $this->findById('commande', $idOrder);
         } catch (\PDOException $e) {
-
             // En cas d'erreur, annulez la transaction
             $this->dbConnection->rollBack();
             echo "Erreur : " . $e->getMessage();
@@ -57,5 +55,4 @@ class CommandesRepository extends BaseRepository
         Session::addMessage("danger", "Erreur SQL");
         return null;
     }
-
 }
