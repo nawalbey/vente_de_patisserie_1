@@ -61,4 +61,5 @@ class DetailRepository extends BaseRepository
         return null;
     }
 
+  
 }
