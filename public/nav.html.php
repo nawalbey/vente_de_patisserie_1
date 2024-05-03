@@ -14,7 +14,7 @@
                     <h3>Bienvenue
                         <?= $userConnecte->getPrenom(); ?></h3>
                     <a href="<?= addLink('user', 'logout') ?>" class="btn color1">Se déconnecter</a>
-                    <?php if ($userConnecte->getRole() == 'ROLE_ADMIN') { ?>
+                    <?php if ($userConnecte->getRole() == 'admin') { ?>
                         <!-- debut de la classe admin_menue avec deux bouton ajout pour les gateaux et list pour voir la list des gateaux-->
                             <div class='admin_menu'>
                                 <a class="btn color1 ms-2 hoverAdmin" href="">Admin</a>

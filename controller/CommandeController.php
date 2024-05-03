@@ -56,6 +56,7 @@ class CommandeController extends BaseController
         
         $cart = $_SESSION["cart"];
         $orderId = $this->commandesRepository->insertOrder();
+        d_die($orderId);
         foreach($cart as $c){
             $gateau = $this->gateauxRepository->findById('gateaux',$c['product']->getId());
             if($gateau){
