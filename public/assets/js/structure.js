@@ -1,7 +1,6 @@
-var urlPanier =
-  window.location.origin + "/vente_de_patisserie_1/panier/addToCart";
+var urlPanier = window.location.origin + "/vente_de_patisserie_1/panier/addToCart";
 var urlPanierQuantite =
-  window.location.origin + "/vente_de_patisserie_1/panier/quantity";
+window.location.origin + "/vente_de_patisserie_1/panier/quantity";
 document.addEventListener("DOMContentLoaded", function () {
   $(".addToCartBtn").on("click", function (event) {
     event.preventDefault();
