@@ -45,6 +45,8 @@ class CommandeController extends BaseController
 // Enfin, elle supprime le panier de la session et affiche un message de succès avant de rediriger l'utilisateur vers la page d'accueil.
     public function confirm()
     {
+        // ! indique le contraire, sans le '!' on lit : si l'utilisateur est connecté
+        // avec le ! on lit : si l'utilisateur n'est PAS connecté 
         if (!$this->isUserConnected()) {
             redirection(addLink("user", "login"));
         }
@@ -56,7 +58,6 @@ class CommandeController extends BaseController
         
         $cart = $_SESSION["cart"];
         $orderId = $this->commandesRepository->insertOrder();
-        d_die($orderId);
         foreach($cart as $c){
             $gateau = $this->gateauxRepository->findById('gateaux',$c['product']->getId());
             if($gateau){

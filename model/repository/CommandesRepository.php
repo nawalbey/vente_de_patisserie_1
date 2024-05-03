@@ -11,7 +11,6 @@ class CommandesRepository extends BaseRepository
     {
         $order = new Commande;
         $order->setUserId($_SESSION["user"]->getId());
-
         try {
             $this->dbConnection->beginTransaction();
             $sql = "INSERT INTO `commande` (numero_commande,date_de_commande,id_user) VALUES (RAND() * (5000 - 200) + 200,NOW(),:userId)";
