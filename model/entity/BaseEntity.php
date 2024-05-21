@@ -16,7 +16,7 @@ abstract class BaseEntity
         // exemple : Model\Entity\Product
         $class = get_called_class();
 
-        // Découpe une chaine de caractèrs dès qu'il rencotre un caractère spécifique ici c'est le "\"
+        // Découpe une chaine de caractèrs dès qu'il rencontre un caractère spécifique ici c'est le "\"
         // Elle retourne ensuite un tableau indexé contenant les élément dans la chaine de caractères
         // Exemple : 
         // ["Model","Entity","Product"]

@@ -3,6 +3,8 @@
     <h1><?= $h1 ?></h1>
     <div class="class3">
         <?php
+        //gateaux c'est un tableau indexe il recupere tout les gateaux dans la base de donnees la table que j'ai crée $gateaux et gateau sans x
+        // il fait une boucle pour affcihe un gateau par un gateau.
         foreach ($gateaux as $gateau) { ?>
                 <div class="card" style="width: 18rem;">
                     <img src='<?= ROOT . UPLOAD_GATEAUX_IMG . $gateau->getPhoto(); ?>' class="card-img-top" alt="verrine">

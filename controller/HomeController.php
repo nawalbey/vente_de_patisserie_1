@@ -5,12 +5,13 @@ namespace Controller;
 use Controller\BaseController;
 use Model\Entity\Gateaux;
 use Model\Repository\GateauxRepository;
-
+// class homecontroller (fille) extends basecontroller (mere).
 class HomeController extends BaseController
 {
+    // Private attribut Gateauxrepository et gateaux (attribut)
     private GateauxRepository $gateauxRepository;
     private Gateaux $gateau;
-
+// public function 3 methode (contruct, list, detaillist)
     public function __construct()
     {
         $this->gateauxRepository = new GateauxRepository;
@@ -24,7 +25,7 @@ class HomeController extends BaseController
             "gateaux" => $gateaux
         ]);
     }
-    
+    // detaillist une methode avec un parametre qui est dollar id 
     public function detailList($id)
     {
         $gateaux = $this->gateauxRepository->findById('gateaux',$id);

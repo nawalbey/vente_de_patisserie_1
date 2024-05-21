@@ -4,6 +4,9 @@ require "inc/init.inc.php";
 /* 
 URL: index.php?controller=user&method=update&id=32
 */
+
+//$get c'est un table associatif 
+//$get il recupere les parametres
 $admin = $_GET["doc"] ?? null;
 $controller = $_GET["controller"] ?? "home";
 $method = $_GET["method"] ?? "list";
@@ -15,7 +18,7 @@ if (!empty($admin)) {
 } else {
     $classController = "Controller\\" . ucfirst($controller) . "Controller";
 }
-// d_die ca veux il s'arrete et var_dump il continuer
+// d_die ça veux dire il s'arrete et var_dump il continuer
 
 //$classController = "Controller\\" . ucfirst($controller) . "Controller";  // ucfirst: met la première lettre d'un string en majuscule
 /* $classController = "Controller\UserController" 

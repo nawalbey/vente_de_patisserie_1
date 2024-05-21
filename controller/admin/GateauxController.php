@@ -26,12 +26,14 @@ class GateauxController extends BaseController
     // Le constructeur initialise les propriétés en instanciant GateauxRepository, GateauxHandleRequest, et Gateaux.
     public function __construct()
     {
+        //$this->gateauxRepository = new GateauxRepository;: Cette ligne crée une nouvelle instance de la classe GateauxRepository et l'assigne à la propriété $gateauxRepository de l'objet courant (instance de la classe contenant ce code).
         $this->gateauxRepository = new GateauxRepository;
         $this->form = new GateauxHandleRequest;
+        //$this->product = new Gateaux;: Cette ligne crée une nouvelle instance de la classe Gateaux et l'assigne à la propriété $product de l'objet courant.
         $this->product = new Gateaux;
     }
     // Méthode list() :
-    // Cette méthode récupère tous les gateaux depuis la base de données via gateauxRepository, puis les passe à la vue pour affichage.
+    // Cette méthode récupère tous les gateaux depuis la base de données via gateauxRepository, puis les passes à la vue pour affichage.
     public function list()
     {
 

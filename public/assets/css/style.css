@@ -744,6 +744,7 @@ footer span {
 }
 /* fin */
 
+/*media queries*/
 /* Pour les écrans de taille moyenne à grande */
 @media screen and (max-width: 1200px) {
   /* Définir la largeur du container */
@@ -761,6 +762,42 @@ footer span {
   /* Ajuster le padding des éléments */
   label {
     padding-top: 15px; /* Réduire l'espace au-dessus du label */
+  }
+
+  .navbar2{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .navbar2>div{
+    width: 33.3%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .navbar2>div:first-child{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+  }
+
+  .navbar2>div:last-child{
+    justify-content: end;
+  }
+
+  .body1 {
+width: 100%;
+  }
+
+  .class3{
+    width: 75%;
+    margin: auto
+    ;
+  }
+
+  .card{
+    width: 22rem !important;
   }
 }
 
@@ -786,5 +823,16 @@ footer span {
   /* Pour la classe .class2 (si nécessaire) */
   .class2 {
     background-position: 50% 50%; /* Modifier la position de l'arrière-plan si nécessaire */
+  }
+
+  .footer-login div i {
+    font-size: 15px;
+  } 
+
+  .footer-login span {
+    padding-left: 5px;
+  }
+  .card {
+    width: 23rem !important;
   }
 }

@@ -5,6 +5,7 @@ use Model\Entity\User;
 
 abstract class Session
 {
+    //destroy detruit la session.
     public static function destroy()
     {
         session_destroy();
@@ -75,5 +76,3 @@ abstract class Session
         }
     }
 }
-// Ce code PHP représente une classe Session située dans le namespace Service. Cette classe fournit des méthodes statiques pour gérer les sessions PHP dans une application web. Voici une explication ligne par ligne :-->
-// namespace Service;: Cette déclaration indique que la classe Session est définie dans le namespace Service.
