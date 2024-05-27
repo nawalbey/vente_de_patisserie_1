@@ -1,28 +1,35 @@
 var urlPanier = window.location.origin + "/vente_de_patisserie_1/panier/addToCart";
 var urlPanierQuantite =
 window.location.origin + "/vente_de_patisserie_1/panier/quantity";
-document.addEventListener("DOMContentLoaded", function () {
+//attend que la page soit chager.
+document.addEventListener("DOMContentLoaded", function ()
+ {
+  //c'est la dans que il y a la requete ajax. Quand tu clique sur ajouter au panier il va executer tout ce que il y a dedans.
   $(".addToCartBtn").on("click", function (event) {
+     //event.preventDefault() est une méthode JavaScript utilisée pour empêcher le comportement par défaut d'un événement.
+// Lorsque vous cliquez sur un lien hypertexte ou soumettez un formulaire, par exemple, le navigateur effectue une action par défaut correspondante, comme suivre le lien ou soumettre le formulaire. Parfois, vous souhaitez annuler ce comportement par défaut et prendre une action différente en réponse à l'événement.
+// Pour cela, vous pouvez utiliser event.preventDefault() dans le gestionnaire d'événements. Par exemple, si vous avez un formulaire et que vous souhaitez vérifier les données avant de les soumettre, vous pouvez utiliser event.preventDefault() pour empêcher le formulaire de se soumettre immédiatement après le clic sur le bouton de soumission. Vous pouvez ensuite effectuer votre propre logique de validation des données et, si nécessaire, soumettre le formulaire programmation.
     event.preventDefault();
     var form = $(this).closest(".add-to-cart-form");
+    // serialize il transforme en chaine de caractere.
     var formData = form.serialize();
     $.ajax({
+      // requete http de methode post ( on peux aussi utiliser la methode Get).
       type: "POST",
+      // url nous dirige vers la methode addtocart dans le controller panier (classe) afin de traiter les donnees que on va envoier vers cette methode.
       url: urlPanier,
-      data: formData + "&ajouterPanier=panier",
+      //les donnees du formulaire du fichier home.html.php (ligne 23)
+      data: formData,
       dataType: "json",
       success: function (response) {
         try {
-          console.log(typeof response);
           $("#nbArticles").text(response.nombre);
         } catch (error) {
           console.error("Erreur lors de la conversion JSON :", error);
         }
       },
-      error: function (xhr, status, error) {
-        console.log("Erreur AJAX:", error);
-        console.log("Status:", status);
-        console.log("Réponse du serveur:", xhr.responseText);
+      error: function (xhr) {
+
 
         // Affiche aussi les propriétés détaillées de l'objet xhr
         console.log("Statut de la requête (XHR):", xhr.status);
@@ -127,7 +134,7 @@ function save_to_db(
       $("#total-price").text(response.totalPrice);
       $("#total-quantity").text(response.totalQuantity);
     },
-    error: function (xhr, status, error) {
+    error: function (xhr, status) {
       console.log("Erreur AJAX:");
       console.log("Status: " + status);
       console.log("Réponse du serveur:");

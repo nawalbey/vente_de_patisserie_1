@@ -8,6 +8,7 @@ use Controller\BaseController;
 /**
  * Summary of ProductController
  */
+// class commandesControllers qui ce trouve dans les fichiers controller admin 
 class CommandesController extends BaseController
 {
     public function edit($id)

@@ -11,10 +11,7 @@ use Form\GateauxHandleRequest;
 use Model\Entity\Gateaux;
 use Model\Repository\GateauxRepository;
 
-// Classe GateauxController :
-
-// Cette classe étend BaseController, ce qui suggère que BaseController contient des fonctionnalités partagées par plusieurs contrôleurs.
-// Les propriétés gateauxRepository, form, et product sont déclarées pour gérer respectivement la manipulation des données en base de données, la manipulation du formulaire, et la gestion des produits (gateaux).
+// class GateauxController extends Bsecontroller (gateauxcontroller c'est l'enfant basecontroller c'est la mere elle herite tout les fonctionnalite de base controller)
 class GateauxController extends BaseController
 {
     private GateauxRepository $gateauxRepository;

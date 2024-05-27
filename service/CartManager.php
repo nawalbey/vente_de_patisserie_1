@@ -57,7 +57,6 @@ class CartManager
 
             // Extraction des données POST
             extract($_POST);
-            // d_die($_POST);
             // Récupération du panier depuis la session
             $cartProducts = &Session::getCart();
             // Récupération du nombre total d'articles dans le panier depuis la session

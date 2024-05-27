@@ -29,6 +29,7 @@ class PanierController extends BaseController
      */
     public function addToCart()
     {
+        // $this form = nouvelle instanciation de la classe Panierhandlerequest 
         $this->form->handleInsertForm();
     }
 
