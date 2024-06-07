@@ -764,39 +764,38 @@ footer span {
     padding-top: 15px; /* Réduire l'espace au-dessus du label */
   }
 
-  .navbar2{
+  .navbar2 {
     display: flex;
     justify-content: space-around;
     width: 100%;
   }
 
-  .navbar2>div{
+  .navbar2 > div {
     width: 33.3%;
     display: flex;
     justify-content: center;
   }
 
-  .navbar2>div:first-child{
+  .navbar2 > div:first-child {
     display: flex;
     flex-direction: row-reverse;
     justify-content: start;
   }
 
-  .navbar2>div:last-child{
+  .navbar2 > div:last-child {
     justify-content: end;
   }
 
   .body1 {
-width: 100%;
+    width: 100%;
   }
 
-  .class3{
+  .class3 {
     width: 75%;
-    margin: auto
-    ;
+    margin: auto;
   }
 
-  .card{
+  .card {
     width: 22rem !important;
   }
 }
@@ -808,6 +807,23 @@ width: 100%;
     width: 100%; /* Utiliser toute la largeur disponible */
     margin-left: 0;
     margin-right: 0;
+  }
+
+  .navbar2 {
+    flex-direction: column;
+    align-items: center;
+
+    div {
+      width: 100%;
+    }
+    div:nth-child(2) > h2 {
+      font-size: 55px;
+    }
+  }
+
+  .navbar2 > div:last-child {
+    width: 100%;
+    justify-content: center;
   }
 
   /* Ajuster la taille de la police pour les titres */
@@ -825,9 +841,29 @@ width: 100%;
     background-position: 50% 50%; /* Modifier la position de l'arrière-plan si nécessaire */
   }
 
-  .footer-login div i {
-    font-size: 15px;
-  } 
+  /* Partie pour rendre la nav plus propre */
+  .admin_menu {
+    width: 25% !important;
+  }
+
+  .bienvenue1{
+    width: 75%;
+    margin: 5px 0;
+  }
+
+  /* Fin de la partie nav */
+
+  .footer-login{
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+
+  .footer-login div {
+    margin: 0 3px;
+    i{
+      font-size: 20px;
+    }
+  }
 
   .footer-login span {
     padding-left: 5px;

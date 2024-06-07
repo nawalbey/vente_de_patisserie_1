@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function ()
     var form = $(this).closest(".add-to-cart-form");
     // serialize il transforme en chaine de caractere.
     var formData = form.serialize();
+    console.log(formData);
     $.ajax({
       // requete http de methode post ( on peux aussi utiliser la methode Get).
       type: "POST",
@@ -23,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function ()
       dataType: "json",
       success: function (response) {
         try {
+          //j'ai cree un element html dans nav je lui est attribut un id "nbArticles" le nombre des produits dans le panier(session) sera a jour a chaque fois que j'ajoute un produit dans le panier il sera affciher dans cet element html(span).
           $("#nbArticles").text(response.nombre);
         } catch (error) {
           console.error("Erreur lors de la conversion JSON :", error);
