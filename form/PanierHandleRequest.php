@@ -19,7 +19,8 @@ class PanierHandleRequest extends BaseHandleRequest
     {
         //condition verifier que la requete http et de type post et que la superglobale et remplie.
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST)) {
-            // il extrait les donnees de $_post.( vu que $_post c'est un tableau associatif) il crée des variables donc les noms sont les clés du talbeau.
+            // il extrait les donnees de $_post.( vu que $_post c'est un tableau associatif) 
+            // il crée des variables donc les noms sont les clés du talbeau.
             extract($_POST);
             //il recupere la valeur de id_gateaux et la stock dans la variable
             $id_gateaux = $_POST['id_gateaux'];

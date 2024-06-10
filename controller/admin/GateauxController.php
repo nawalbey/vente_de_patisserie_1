@@ -118,4 +118,5 @@ class GateauxController extends BaseController
             "mode" => "suppression"
         ]);
     }
+
 }

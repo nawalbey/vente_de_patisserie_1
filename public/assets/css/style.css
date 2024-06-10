@@ -817,7 +817,7 @@ footer span {
       width: 100%;
     }
     div:nth-child(2) > h2 {
-      font-size: 55px;
+      font-size: 30px !important;
     }
   }
 

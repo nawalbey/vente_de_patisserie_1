@@ -56,3 +56,4 @@ class GateauxRepository extends BaseRepository
         return null;
     }
 }
+
